@@ -7,15 +7,212 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA2066532786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20663F2786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.c */; };
+		EA2066542786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066412786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.c */; };
+		EA2066552786CE4E00B96F22 /* authTronCore_cbor_check_params.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066432786CE4E00B96F22 /* authTronCore_cbor_check_params.c */; };
+		EA2066562786CE4E00B96F22 /* authTronCore_u2f_cmd.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066472786CE4E00B96F22 /* authTronCore_u2f_cmd.c */; };
+		EA2066572786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20664A2786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.c */; };
+		EA2066582786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20664C2786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.c */; };
+		EA2066592786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20664E2786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.c */; };
+		EA20665A2786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066502786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.c */; };
+		EA20665B2786CE4E00B96F22 /* authTronCore_authenticator.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066512786CE4E00B96F22 /* authTronCore_authenticator.c */; };
+		EA2066C72786CE9D00B96F22 /* mpi.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066622786CE9D00B96F22 /* mpi.c */; };
+		EA2066C82786CE9D00B96F22 /* sha2_256.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066652786CE9D00B96F22 /* sha2_256.c */; };
+		EA2066C92786CE9D00B96F22 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066662786CE9D00B96F22 /* sha1.c */; };
+		EA2066CA2786CE9D00B96F22 /* sha2_512.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066672786CE9D00B96F22 /* sha2_512.c */; };
+		EA2066CB2786CE9D00B96F22 /* sha3.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20666A2786CE9D00B96F22 /* sha3.c */; };
+		EA2066CC2786CE9D00B96F22 /* mpbn_arith.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20666D2786CE9D00B96F22 /* mpbn_arith.c */; };
+		EA2066CD2786CE9D00B96F22 /* div_util.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20666E2786CE9D00B96F22 /* div_util.c */; };
+		EA2066CE2786CE9D00B96F22 /* mpbn_mod_inv.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066702786CE9D00B96F22 /* mpbn_mod_inv.c */; };
+		EA2066CF2786CE9D00B96F22 /* mpbn_prime.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066772786CE9D00B96F22 /* mpbn_prime.c */; };
+		EA2066D02786CE9D00B96F22 /* mpbn_word.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066782786CE9D00B96F22 /* mpbn_word.c */; };
+		EA2066D12786CE9D00B96F22 /* mpbn_mont.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066792786CE9D00B96F22 /* mpbn_mont.c */; };
+		EA2066D22786CE9D00B96F22 /* mpbn_util.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20667A2786CE9D00B96F22 /* mpbn_util.c */; };
+		EA2066D32786CE9D00B96F22 /* mpbn_arith_mod.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20667B2786CE9D00B96F22 /* mpbn_arith_mod.c */; };
+		EA2066D42786CE9D00B96F22 /* hash_drbg.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20667D2786CE9D00B96F22 /* hash_drbg.c */; };
+		EA2066D52786CE9D00B96F22 /* aes.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066812786CE9D00B96F22 /* aes.c */; };
+		EA2066D62786CE9D00B96F22 /* aes_algo.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066822786CE9D00B96F22 /* aes_algo.c */; };
+		EA2066D82786CE9D00B96F22 /* aes_tables.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066862786CE9D00B96F22 /* aes_tables.c */; };
+		EA2066D92786CE9D00B96F22 /* ecp_aux_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066892786CE9D00B96F22 /* ecp_aux_impl.c */; };
+		EA2066DA2786CE9D00B96F22 /* ecp_add.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20668A2786CE9D00B96F22 /* ecp_add.c */; };
+		EA2066DB2786CE9D00B96F22 /* ecp_normalize.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20668B2786CE9D00B96F22 /* ecp_normalize.c */; };
+		EA2066DC2786CE9D00B96F22 /* ecp_normalize_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20668E2786CE9D00B96F22 /* ecp_normalize_impl.c */; };
+		EA2066DD2786CE9D00B96F22 /* ecp_scalar_mult.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20668F2786CE9D00B96F22 /* ecp_scalar_mult.c */; };
+		EA2066DE2786CE9D00B96F22 /* ecp_aux.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066902786CE9D00B96F22 /* ecp_aux.c */; };
+		EA2066DF2786CE9D00B96F22 /* ecp.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066912786CE9D00B96F22 /* ecp.c */; };
+		EA2066E02786CE9D00B96F22 /* ecp_curve_dp.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066922786CE9D00B96F22 /* ecp_curve_dp.c */; };
+		EA2066E12786CE9D00B96F22 /* ecp_double.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066932786CE9D00B96F22 /* ecp_double.c */; };
+		EA2066E22786CE9D00B96F22 /* ecp_add_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066942786CE9D00B96F22 /* ecp_add_impl.c */; };
+		EA2066E32786CE9D00B96F22 /* ecp_double_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066962786CE9D00B96F22 /* ecp_double_impl.c */; };
+		EA2066E42786CE9D00B96F22 /* crystal_platform.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066982786CE9D00B96F22 /* crystal_platform.c */; };
+		EA2066E52786CE9D00B96F22 /* crystal_util.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20669D2786CE9D00B96F22 /* crystal_util.c */; };
+		EA2066E62786CE9D00B96F22 /* crystal_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = EA20669F2786CE9D00B96F22 /* crystal_mem.c */; };
+		EA2066E72786CE9D00B96F22 /* crystal_hdrbg.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066A02786CE9D00B96F22 /* crystal_hdrbg.c */; };
+		EA2066E82786CE9D00B96F22 /* crystal_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066A12786CE9D00B96F22 /* crystal_hash.c */; };
+		EA2066E92786CE9D00B96F22 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066A52786CE9D00B96F22 /* hmac.c */; };
+		EA2066EA2786CE9D00B96F22 /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066A82786CE9D00B96F22 /* hash.c */; };
+		EA2066EB2786CE9D00B96F22 /* block_cipher.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066AC2786CE9D00B96F22 /* block_cipher.c */; };
+		EA2066EC2786CE9D00B96F22 /* xts.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066AD2786CE9D00B96F22 /* xts.c */; };
+		EA2066ED2786CE9D00B96F22 /* gcm.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066AE2786CE9D00B96F22 /* gcm.c */; };
+		EA2066EE2786CE9D00B96F22 /* ccm.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066AF2786CE9D00B96F22 /* ccm.c */; };
+		EA2066EF2786CE9D00B96F22 /* cmac.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066B12786CE9D00B96F22 /* cmac.c */; };
+		EA2066F02786CE9D00B96F22 /* block_cipher_util.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066B62786CE9D00B96F22 /* block_cipher_util.c */; };
+		EA2066F12786CE9D00B96F22 /* crystal_init.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066B92786CE9D00B96F22 /* crystal_init.c */; };
+		EA2066F22786CE9D00B96F22 /* ecdh.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066BC2786CE9D00B96F22 /* ecdh.c */; };
+		EA2066F32786CE9D00B96F22 /* ecc.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066BD2786CE9D00B96F22 /* ecc.c */; };
+		EA2066F42786CE9D00B96F22 /* ecdsa.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066C12786CE9D00B96F22 /* ecdsa.c */; };
+		EA2066F52786CE9D00B96F22 /* drng.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066C42786CE9D00B96F22 /* drng.c */; };
+		EA2066F62786CE9D00B96F22 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EA2066C52786CE9D00B96F22 /* README.md */; };
+		EA2066F92786CFF900B96F22 /* authTronCore_self.c in Sources */ = {isa = PBXBuildFile; fileRef = EA2066F82786CFF900B96F22 /* authTronCore_self.c */; };
+		EA2066FE2786D3EE00B96F22 /* ATCattkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2066FD2786D3EE00B96F22 /* ATCattkey.swift */; };
+		EA2067002786D40700B96F22 /* ATCmasterkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2066FF2786D40700B96F22 /* ATCmasterkey.swift */; };
+		EA2067022786D41D00B96F22 /* ATCecdsa.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2067012786D41D00B96F22 /* ATCecdsa.swift */; };
+		EA2067042786D42900B96F22 /* ATCecdh.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2067032786D42900B96F22 /* ATCecdh.swift */; };
+		EA2067062786D43B00B96F22 /* ATCstorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2067052786D43B00B96F22 /* ATCstorage.swift */; };
+		EA3CCA3D276C636E00E1CD12 /* httptaskClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3CCA3C276C636E00E1CD12 /* httptaskClass.swift */; };
+		EA3CCA4C2775CB1800E1CD12 /* getIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3CCA4B2775CB1800E1CD12 /* getIP.swift */; };
+		EA3CCCF4277D607500E1CD12 /* processUdpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3CCCF3277D607500E1CD12 /* processUdpData.swift */; };
 		EA864F7E2759E50E0027D5A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA864F7D2759E50E0027D5A0 /* AppDelegate.swift */; };
 		EA864F802759E50E0027D5A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA864F7F2759E50E0027D5A0 /* SceneDelegate.swift */; };
 		EA864F822759E50E0027D5A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA864F812759E50E0027D5A0 /* ViewController.swift */; };
 		EA864F852759E50E0027D5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA864F832759E50E0027D5A0 /* Main.storyboard */; };
 		EA864F872759E50F0027D5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA864F862759E50F0027D5A0 /* Assets.xcassets */; };
 		EA864F8A2759E50F0027D5A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA864F882759E50F0027D5A0 /* LaunchScreen.storyboard */; };
+		EA864F95275DB66A0027D5A0 /* UDPlistener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA864F94275DB66A0027D5A0 /* UDPlistener.swift */; };
+		EA8840162761CBB000338D1A /* cameraAuthorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8840152761CBB000338D1A /* cameraAuthorize.swift */; };
+		EA8840182761CBFE00338D1A /* informTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8840172761CBFE00338D1A /* informTableViewController.swift */; };
+		EA88401A2761CC3C00338D1A /* scanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8840192761CC3C00338D1A /* scanController.swift */; };
+		EA884088276B23F800338D1A /* genJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA884087276B23F800338D1A /* genJWT.swift */; };
+		EA88408B276B251500338D1A /* CDSave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA884089276B251500338D1A /* CDSave.xcdatamodeld */; };
+		EAB83C67278D2F9D004534C9 /* AESSHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB83C66278D2F9D004534C9 /* AESSHA.swift */; };
+		EAFF42FF2788129D000FBF1E /* iniKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF42FE2788129D000FBF1E /* iniKey.swift */; };
+		EAFF4303278828FB000FBF1E /* IDstorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF4302278828FB000FBF1E /* IDstorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA20663F2786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_cmd_getinfo.c; sourceTree = "<group>"; };
+		EA2066402786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_cmd_makecredential.h; sourceTree = "<group>"; };
+		EA2066412786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_cmd_getassertion.c; sourceTree = "<group>"; };
+		EA2066422786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_cmd_handler.h; sourceTree = "<group>"; };
+		EA2066432786CE4E00B96F22 /* authTronCore_cbor_check_params.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_check_params.c; sourceTree = "<group>"; };
+		EA2066442786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_cmd_reset.h; sourceTree = "<group>"; };
+		EA2066452786CE4E00B96F22 /* authTronCore_ctap_status_codes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_ctap_status_codes.h; sourceTree = "<group>"; };
+		EA2066462786CE4E00B96F22 /* authTronCore_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_adapter.h; sourceTree = "<group>"; };
+		EA2066472786CE4E00B96F22 /* authTronCore_u2f_cmd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_u2f_cmd.c; sourceTree = "<group>"; };
+		EA2066482786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_cmd_clientpin.h; sourceTree = "<group>"; };
+		EA2066492786CE4E00B96F22 /* authTronCore_authenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_authenticator.h; sourceTree = "<group>"; };
+		EA20664A2786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_cmd_makecredential.c; sourceTree = "<group>"; };
+		EA20664B2786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_cmd_getinfo.h; sourceTree = "<group>"; };
+		EA20664C2786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_cmd_handler.c; sourceTree = "<group>"; };
+		EA20664D2786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_cmd_getassertion.h; sourceTree = "<group>"; };
+		EA20664E2786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_cmd_reset.c; sourceTree = "<group>"; };
+		EA20664F2786CE4E00B96F22 /* authTronCore_cbor_check_params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_cbor_check_params.h; sourceTree = "<group>"; };
+		EA2066502786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_cbor_cmd_clientpin.c; sourceTree = "<group>"; };
+		EA2066512786CE4E00B96F22 /* authTronCore_authenticator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authTronCore_authenticator.c; sourceTree = "<group>"; };
+		EA2066522786CE4E00B96F22 /* authTronCore_u2f_cmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authTronCore_u2f_cmd.h; sourceTree = "<group>"; };
+		EA20665D2786CE9D00B96F22 /* crystal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal.h; sourceTree = "<group>"; };
+		EA20665F2786CE9D00B96F22 /* core_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core_error.h; sourceTree = "<group>"; };
+		EA2066612786CE9D00B96F22 /* mpi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpi.h; sourceTree = "<group>"; };
+		EA2066622786CE9D00B96F22 /* mpi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpi.c; sourceTree = "<group>"; };
+		EA2066642786CE9D00B96F22 /* sha3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha3.h; sourceTree = "<group>"; };
+		EA2066652786CE9D00B96F22 /* sha2_256.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha2_256.c; sourceTree = "<group>"; };
+		EA2066662786CE9D00B96F22 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		EA2066672786CE9D00B96F22 /* sha2_512.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha2_512.c; sourceTree = "<group>"; };
+		EA2066682786CE9D00B96F22 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		EA2066692786CE9D00B96F22 /* sha2_256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha2_256.h; sourceTree = "<group>"; };
+		EA20666A2786CE9D00B96F22 /* sha3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha3.c; sourceTree = "<group>"; };
+		EA20666B2786CE9D00B96F22 /* sha2_512.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha2_512.h; sourceTree = "<group>"; };
+		EA20666D2786CE9D00B96F22 /* mpbn_arith.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_arith.c; sourceTree = "<group>"; };
+		EA20666E2786CE9D00B96F22 /* div_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = div_util.c; sourceTree = "<group>"; };
+		EA20666F2786CE9D00B96F22 /* mpbn_word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpbn_word.h; sourceTree = "<group>"; };
+		EA2066702786CE9D00B96F22 /* mpbn_mod_inv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_mod_inv.c; sourceTree = "<group>"; };
+		EA2066712786CE9D00B96F22 /* mpbn_prime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpbn_prime.h; sourceTree = "<group>"; };
+		EA2066722786CE9D00B96F22 /* mpbn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpbn.h; sourceTree = "<group>"; };
+		EA2066732786CE9D00B96F22 /* mpbn_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpbn_util.h; sourceTree = "<group>"; };
+		EA2066742786CE9D00B96F22 /* mpbn_mont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpbn_mont.h; sourceTree = "<group>"; };
+		EA2066752786CE9D00B96F22 /* div_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = div_util.h; sourceTree = "<group>"; };
+		EA2066762786CE9D00B96F22 /* mpbn_arith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpbn_arith.h; sourceTree = "<group>"; };
+		EA2066772786CE9D00B96F22 /* mpbn_prime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_prime.c; sourceTree = "<group>"; };
+		EA2066782786CE9D00B96F22 /* mpbn_word.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_word.c; sourceTree = "<group>"; };
+		EA2066792786CE9D00B96F22 /* mpbn_mont.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_mont.c; sourceTree = "<group>"; };
+		EA20667A2786CE9D00B96F22 /* mpbn_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_util.c; sourceTree = "<group>"; };
+		EA20667B2786CE9D00B96F22 /* mpbn_arith_mod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mpbn_arith_mod.c; sourceTree = "<group>"; };
+		EA20667D2786CE9D00B96F22 /* hash_drbg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hash_drbg.c; sourceTree = "<group>"; };
+		EA20667E2786CE9D00B96F22 /* hash_drbg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash_drbg.h; sourceTree = "<group>"; };
+		EA20667F2786CE9D00B96F22 /* core_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core_base.h; sourceTree = "<group>"; };
+		EA2066812786CE9D00B96F22 /* aes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aes.c; sourceTree = "<group>"; };
+		EA2066822786CE9D00B96F22 /* aes_algo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aes_algo.c; sourceTree = "<group>"; };
+		EA2066832786CE9D00B96F22 /* aes_tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_tables.h; sourceTree = "<group>"; };
+		EA2066852786CE9D00B96F22 /* aes_algo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_algo.h; sourceTree = "<group>"; };
+		EA2066862786CE9D00B96F22 /* aes_tables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aes_tables.c; sourceTree = "<group>"; };
+		EA2066872786CE9D00B96F22 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		EA2066892786CE9D00B96F22 /* ecp_aux_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_aux_impl.c; sourceTree = "<group>"; };
+		EA20668A2786CE9D00B96F22 /* ecp_add.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_add.c; sourceTree = "<group>"; };
+		EA20668B2786CE9D00B96F22 /* ecp_normalize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_normalize.c; sourceTree = "<group>"; };
+		EA20668C2786CE9D00B96F22 /* ecp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecp.h; sourceTree = "<group>"; };
+		EA20668D2786CE9D00B96F22 /* ecp_curve_dp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecp_curve_dp.h; sourceTree = "<group>"; };
+		EA20668E2786CE9D00B96F22 /* ecp_normalize_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_normalize_impl.c; sourceTree = "<group>"; };
+		EA20668F2786CE9D00B96F22 /* ecp_scalar_mult.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_scalar_mult.c; sourceTree = "<group>"; };
+		EA2066902786CE9D00B96F22 /* ecp_aux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_aux.c; sourceTree = "<group>"; };
+		EA2066912786CE9D00B96F22 /* ecp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp.c; sourceTree = "<group>"; };
+		EA2066922786CE9D00B96F22 /* ecp_curve_dp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_curve_dp.c; sourceTree = "<group>"; };
+		EA2066932786CE9D00B96F22 /* ecp_double.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_double.c; sourceTree = "<group>"; };
+		EA2066942786CE9D00B96F22 /* ecp_add_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_add_impl.c; sourceTree = "<group>"; };
+		EA2066952786CE9D00B96F22 /* ecp_primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecp_primitive.h; sourceTree = "<group>"; };
+		EA2066962786CE9D00B96F22 /* ecp_double_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecp_double_impl.c; sourceTree = "<group>"; };
+		EA2066982786CE9D00B96F22 /* crystal_platform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crystal_platform.c; sourceTree = "<group>"; };
+		EA2066992786CE9D00B96F22 /* crystal_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_util.h; sourceTree = "<group>"; };
+		EA20669A2786CE9D00B96F22 /* crystal_hdrbg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_hdrbg.h; sourceTree = "<group>"; };
+		EA20669B2786CE9D00B96F22 /* crystal_mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_mem.h; sourceTree = "<group>"; };
+		EA20669C2786CE9D00B96F22 /* crystal_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_hash.h; sourceTree = "<group>"; };
+		EA20669D2786CE9D00B96F22 /* crystal_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crystal_util.c; sourceTree = "<group>"; };
+		EA20669E2786CE9D00B96F22 /* crystal_platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_platform.h; sourceTree = "<group>"; };
+		EA20669F2786CE9D00B96F22 /* crystal_mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crystal_mem.c; sourceTree = "<group>"; };
+		EA2066A02786CE9D00B96F22 /* crystal_hdrbg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crystal_hdrbg.c; sourceTree = "<group>"; };
+		EA2066A12786CE9D00B96F22 /* crystal_hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crystal_hash.c; sourceTree = "<group>"; };
+		EA2066A22786CE9D00B96F22 /* crystal_algo_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_algo_config.h; sourceTree = "<group>"; };
+		EA2066A52786CE9D00B96F22 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		EA2066A62786CE9D00B96F22 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		EA2066A82786CE9D00B96F22 /* hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hash.c; sourceTree = "<group>"; };
+		EA2066A92786CE9D00B96F22 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		EA2066AA2786CE9D00B96F22 /* crystal_init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_init.h; sourceTree = "<group>"; };
+		EA2066AC2786CE9D00B96F22 /* block_cipher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = block_cipher.c; sourceTree = "<group>"; };
+		EA2066AD2786CE9D00B96F22 /* xts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xts.c; sourceTree = "<group>"; };
+		EA2066AE2786CE9D00B96F22 /* gcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gcm.c; sourceTree = "<group>"; };
+		EA2066AF2786CE9D00B96F22 /* ccm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ccm.c; sourceTree = "<group>"; };
+		EA2066B02786CE9D00B96F22 /* block_cipher_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = block_cipher_util.h; sourceTree = "<group>"; };
+		EA2066B12786CE9D00B96F22 /* cmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmac.c; sourceTree = "<group>"; };
+		EA2066B22786CE9D00B96F22 /* block_cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = block_cipher.h; sourceTree = "<group>"; };
+		EA2066B32786CE9D00B96F22 /* gcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcm.h; sourceTree = "<group>"; };
+		EA2066B42786CE9D00B96F22 /* xts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xts.h; sourceTree = "<group>"; };
+		EA2066B52786CE9D00B96F22 /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		EA2066B62786CE9D00B96F22 /* block_cipher_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = block_cipher_util.c; sourceTree = "<group>"; };
+		EA2066B72786CE9D00B96F22 /* ccm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccm.h; sourceTree = "<group>"; };
+		EA2066B82786CE9D00B96F22 /* crystal_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_base.h; sourceTree = "<group>"; };
+		EA2066B92786CE9D00B96F22 /* crystal_init.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crystal_init.c; sourceTree = "<group>"; };
+		EA2066BA2786CE9D00B96F22 /* crystal_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_error.h; sourceTree = "<group>"; };
+		EA2066BC2786CE9D00B96F22 /* ecdh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecdh.c; sourceTree = "<group>"; };
+		EA2066BD2786CE9D00B96F22 /* ecc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecc.c; sourceTree = "<group>"; };
+		EA2066BE2786CE9D00B96F22 /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		EA2066BF2786CE9D00B96F22 /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		EA2066C02786CE9D00B96F22 /* ecc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecc.h; sourceTree = "<group>"; };
+		EA2066C12786CE9D00B96F22 /* ecdsa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ecdsa.c; sourceTree = "<group>"; };
+		EA2066C32786CE9D00B96F22 /* drng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drng.h; sourceTree = "<group>"; };
+		EA2066C42786CE9D00B96F22 /* drng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = drng.c; sourceTree = "<group>"; };
+		EA2066C52786CE9D00B96F22 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EA2066C62786CE9D00B96F22 /* crystal_platform_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crystal_platform_config.h; sourceTree = "<group>"; };
+		EA2066F72786CFF900B96F22 /* authTronCore_self.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = authTronCore_self.h; sourceTree = "<group>"; };
+		EA2066F82786CFF900B96F22 /* authTronCore_self.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = authTronCore_self.c; sourceTree = "<group>"; };
+		EA2066FA2786D04200B96F22 /* canvas-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "canvas-Bridging-Header.h"; sourceTree = "<group>"; };
+		EA2066FD2786D3EE00B96F22 /* ATCattkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCattkey.swift; sourceTree = "<group>"; };
+		EA2066FF2786D40700B96F22 /* ATCmasterkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCmasterkey.swift; sourceTree = "<group>"; };
+		EA2067012786D41D00B96F22 /* ATCecdsa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCecdsa.swift; sourceTree = "<group>"; };
+		EA2067032786D42900B96F22 /* ATCecdh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCecdh.swift; sourceTree = "<group>"; };
+		EA2067052786D43B00B96F22 /* ATCstorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCstorage.swift; sourceTree = "<group>"; };
+		EA3CCA3C276C636E00E1CD12 /* httptaskClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = httptaskClass.swift; sourceTree = "<group>"; };
+		EA3CCA4B2775CB1800E1CD12 /* getIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIP.swift; sourceTree = "<group>"; };
+		EA3CCCF2277C35CD00E1CD12 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EA3CCCF3277D607500E1CD12 /* processUdpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = processUdpData.swift; sourceTree = "<group>"; };
 		EA864F7A2759E50E0027D5A0 /* canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA864F7D2759E50E0027D5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA864F7F2759E50E0027D5A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +221,15 @@
 		EA864F862759E50F0027D5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA864F892759E50F0027D5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA864F8B2759E50F0027D5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA864F94275DB66A0027D5A0 /* UDPlistener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPlistener.swift; sourceTree = "<group>"; };
+		EA8840152761CBB000338D1A /* cameraAuthorize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraAuthorize.swift; sourceTree = "<group>"; };
+		EA8840172761CBFE00338D1A /* informTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = informTableViewController.swift; sourceTree = "<group>"; };
+		EA8840192761CC3C00338D1A /* scanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanController.swift; sourceTree = "<group>"; };
+		EA884087276B23F800338D1A /* genJWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genJWT.swift; sourceTree = "<group>"; };
+		EA88408A276B251500338D1A /* CDSave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDSave.xcdatamodel; sourceTree = "<group>"; };
+		EAB83C66278D2F9D004534C9 /* AESSHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESSHA.swift; sourceTree = "<group>"; };
+		EAFF42FE2788129D000FBF1E /* iniKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iniKey.swift; sourceTree = "<group>"; };
+		EAFF4302278828FB000FBF1E /* IDstorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDstorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +243,245 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA20663E2786CE4E00B96F22 /* authtron-core */ = {
+			isa = PBXGroup;
+			children = (
+				EA20663F2786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.c */,
+				EA20664B2786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.h */,
+				EA2066412786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.c */,
+				EA2066422786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.h */,
+				EA20664C2786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.c */,
+				EA20664D2786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.h */,
+				EA2066432786CE4E00B96F22 /* authTronCore_cbor_check_params.c */,
+				EA20664F2786CE4E00B96F22 /* authTronCore_cbor_check_params.h */,
+				EA20664E2786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.c */,
+				EA2066442786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.h */,
+				EA2066502786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.c */,
+				EA2066482786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.h */,
+				EA20664A2786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.c */,
+				EA2066402786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.h */,
+				EA2066512786CE4E00B96F22 /* authTronCore_authenticator.c */,
+				EA2066492786CE4E00B96F22 /* authTronCore_authenticator.h */,
+				EA2066472786CE4E00B96F22 /* authTronCore_u2f_cmd.c */,
+				EA2066522786CE4E00B96F22 /* authTronCore_u2f_cmd.h */,
+				EA2066452786CE4E00B96F22 /* authTronCore_ctap_status_codes.h */,
+				EA2066462786CE4E00B96F22 /* authTronCore_adapter.h */,
+			);
+			name = "authtron-core";
+			path = "../../authtron-core";
+			sourceTree = "<group>";
+		};
+		EA20665C2786CE9D00B96F22 /* crystal_src */ = {
+			isa = PBXGroup;
+			children = (
+				EA20665D2786CE9D00B96F22 /* crystal.h */,
+				EA20665E2786CE9D00B96F22 /* core */,
+				EA2066972786CE9D00B96F22 /* util */,
+				EA2066A22786CE9D00B96F22 /* crystal_algo_config.h */,
+				EA2066A32786CE9D00B96F22 /* crystal */,
+				EA2066C52786CE9D00B96F22 /* README.md */,
+				EA2066C62786CE9D00B96F22 /* crystal_platform_config.h */,
+			);
+			name = crystal_src;
+			path = ../../../../crystal_src;
+			sourceTree = "<group>";
+		};
+		EA20665E2786CE9D00B96F22 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				EA20665F2786CE9D00B96F22 /* core_error.h */,
+				EA2066602786CE9D00B96F22 /* mpi */,
+				EA2066632786CE9D00B96F22 /* hash */,
+				EA20666C2786CE9D00B96F22 /* mpbn */,
+				EA20667C2786CE9D00B96F22 /* drbg */,
+				EA20667F2786CE9D00B96F22 /* core_base.h */,
+				EA2066802786CE9D00B96F22 /* aes */,
+				EA2066882786CE9D00B96F22 /* ecp */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		EA2066602786CE9D00B96F22 /* mpi */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066612786CE9D00B96F22 /* mpi.h */,
+				EA2066622786CE9D00B96F22 /* mpi.c */,
+			);
+			path = mpi;
+			sourceTree = "<group>";
+		};
+		EA2066632786CE9D00B96F22 /* hash */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066642786CE9D00B96F22 /* sha3.h */,
+				EA2066652786CE9D00B96F22 /* sha2_256.c */,
+				EA2066662786CE9D00B96F22 /* sha1.c */,
+				EA2066672786CE9D00B96F22 /* sha2_512.c */,
+				EA2066682786CE9D00B96F22 /* sha1.h */,
+				EA2066692786CE9D00B96F22 /* sha2_256.h */,
+				EA20666A2786CE9D00B96F22 /* sha3.c */,
+				EA20666B2786CE9D00B96F22 /* sha2_512.h */,
+			);
+			path = hash;
+			sourceTree = "<group>";
+		};
+		EA20666C2786CE9D00B96F22 /* mpbn */ = {
+			isa = PBXGroup;
+			children = (
+				EA20666D2786CE9D00B96F22 /* mpbn_arith.c */,
+				EA20666E2786CE9D00B96F22 /* div_util.c */,
+				EA20666F2786CE9D00B96F22 /* mpbn_word.h */,
+				EA2066702786CE9D00B96F22 /* mpbn_mod_inv.c */,
+				EA2066712786CE9D00B96F22 /* mpbn_prime.h */,
+				EA2066722786CE9D00B96F22 /* mpbn.h */,
+				EA2066732786CE9D00B96F22 /* mpbn_util.h */,
+				EA2066742786CE9D00B96F22 /* mpbn_mont.h */,
+				EA2066752786CE9D00B96F22 /* div_util.h */,
+				EA2066762786CE9D00B96F22 /* mpbn_arith.h */,
+				EA2066772786CE9D00B96F22 /* mpbn_prime.c */,
+				EA2066782786CE9D00B96F22 /* mpbn_word.c */,
+				EA2066792786CE9D00B96F22 /* mpbn_mont.c */,
+				EA20667A2786CE9D00B96F22 /* mpbn_util.c */,
+				EA20667B2786CE9D00B96F22 /* mpbn_arith_mod.c */,
+			);
+			path = mpbn;
+			sourceTree = "<group>";
+		};
+		EA20667C2786CE9D00B96F22 /* drbg */ = {
+			isa = PBXGroup;
+			children = (
+				EA20667D2786CE9D00B96F22 /* hash_drbg.c */,
+				EA20667E2786CE9D00B96F22 /* hash_drbg.h */,
+			);
+			path = drbg;
+			sourceTree = "<group>";
+		};
+		EA2066802786CE9D00B96F22 /* aes */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066812786CE9D00B96F22 /* aes.c */,
+				EA2066822786CE9D00B96F22 /* aes_algo.c */,
+				EA2066832786CE9D00B96F22 /* aes_tables.h */,
+				EA2066852786CE9D00B96F22 /* aes_algo.h */,
+				EA2066862786CE9D00B96F22 /* aes_tables.c */,
+				EA2066872786CE9D00B96F22 /* aes.h */,
+			);
+			path = aes;
+			sourceTree = "<group>";
+		};
+		EA2066882786CE9D00B96F22 /* ecp */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066892786CE9D00B96F22 /* ecp_aux_impl.c */,
+				EA20668A2786CE9D00B96F22 /* ecp_add.c */,
+				EA20668B2786CE9D00B96F22 /* ecp_normalize.c */,
+				EA20668C2786CE9D00B96F22 /* ecp.h */,
+				EA20668D2786CE9D00B96F22 /* ecp_curve_dp.h */,
+				EA20668E2786CE9D00B96F22 /* ecp_normalize_impl.c */,
+				EA20668F2786CE9D00B96F22 /* ecp_scalar_mult.c */,
+				EA2066902786CE9D00B96F22 /* ecp_aux.c */,
+				EA2066912786CE9D00B96F22 /* ecp.c */,
+				EA2066922786CE9D00B96F22 /* ecp_curve_dp.c */,
+				EA2066932786CE9D00B96F22 /* ecp_double.c */,
+				EA2066942786CE9D00B96F22 /* ecp_add_impl.c */,
+				EA2066952786CE9D00B96F22 /* ecp_primitive.h */,
+				EA2066962786CE9D00B96F22 /* ecp_double_impl.c */,
+			);
+			path = ecp;
+			sourceTree = "<group>";
+		};
+		EA2066972786CE9D00B96F22 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066982786CE9D00B96F22 /* crystal_platform.c */,
+				EA2066992786CE9D00B96F22 /* crystal_util.h */,
+				EA20669A2786CE9D00B96F22 /* crystal_hdrbg.h */,
+				EA20669B2786CE9D00B96F22 /* crystal_mem.h */,
+				EA20669C2786CE9D00B96F22 /* crystal_hash.h */,
+				EA20669D2786CE9D00B96F22 /* crystal_util.c */,
+				EA20669E2786CE9D00B96F22 /* crystal_platform.h */,
+				EA20669F2786CE9D00B96F22 /* crystal_mem.c */,
+				EA2066A02786CE9D00B96F22 /* crystal_hdrbg.c */,
+				EA2066A12786CE9D00B96F22 /* crystal_hash.c */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		EA2066A32786CE9D00B96F22 /* crystal */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066A42786CE9D00B96F22 /* hmac */,
+				EA2066A72786CE9D00B96F22 /* hash */,
+				EA2066AA2786CE9D00B96F22 /* crystal_init.h */,
+				EA2066AB2786CE9D00B96F22 /* blockcipher */,
+				EA2066B82786CE9D00B96F22 /* crystal_base.h */,
+				EA2066B92786CE9D00B96F22 /* crystal_init.c */,
+				EA2066BA2786CE9D00B96F22 /* crystal_error.h */,
+				EA2066BB2786CE9D00B96F22 /* ecc */,
+				EA2066C22786CE9D00B96F22 /* drng */,
+			);
+			path = crystal;
+			sourceTree = "<group>";
+		};
+		EA2066A42786CE9D00B96F22 /* hmac */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066A52786CE9D00B96F22 /* hmac.c */,
+				EA2066A62786CE9D00B96F22 /* hmac.h */,
+			);
+			path = hmac;
+			sourceTree = "<group>";
+		};
+		EA2066A72786CE9D00B96F22 /* hash */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066A82786CE9D00B96F22 /* hash.c */,
+				EA2066A92786CE9D00B96F22 /* hash.h */,
+			);
+			path = hash;
+			sourceTree = "<group>";
+		};
+		EA2066AB2786CE9D00B96F22 /* blockcipher */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066AC2786CE9D00B96F22 /* block_cipher.c */,
+				EA2066AD2786CE9D00B96F22 /* xts.c */,
+				EA2066AE2786CE9D00B96F22 /* gcm.c */,
+				EA2066AF2786CE9D00B96F22 /* ccm.c */,
+				EA2066B02786CE9D00B96F22 /* block_cipher_util.h */,
+				EA2066B12786CE9D00B96F22 /* cmac.c */,
+				EA2066B22786CE9D00B96F22 /* block_cipher.h */,
+				EA2066B32786CE9D00B96F22 /* gcm.h */,
+				EA2066B42786CE9D00B96F22 /* xts.h */,
+				EA2066B52786CE9D00B96F22 /* cmac.h */,
+				EA2066B62786CE9D00B96F22 /* block_cipher_util.c */,
+				EA2066B72786CE9D00B96F22 /* ccm.h */,
+			);
+			path = blockcipher;
+			sourceTree = "<group>";
+		};
+		EA2066BB2786CE9D00B96F22 /* ecc */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066BC2786CE9D00B96F22 /* ecdh.c */,
+				EA2066BD2786CE9D00B96F22 /* ecc.c */,
+				EA2066BE2786CE9D00B96F22 /* ecdsa.h */,
+				EA2066BF2786CE9D00B96F22 /* ecdh.h */,
+				EA2066C02786CE9D00B96F22 /* ecc.h */,
+				EA2066C12786CE9D00B96F22 /* ecdsa.c */,
+			);
+			path = ecc;
+			sourceTree = "<group>";
+		};
+		EA2066C22786CE9D00B96F22 /* drng */ = {
+			isa = PBXGroup;
+			children = (
+				EA2066C32786CE9D00B96F22 /* drng.h */,
+				EA2066C42786CE9D00B96F22 /* drng.c */,
+			);
+			path = drng;
+			sourceTree = "<group>";
+		};
 		EA864F712759E50E0027D5A0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +501,36 @@
 		EA864F7C2759E50E0027D5A0 /* canvas */ = {
 			isa = PBXGroup;
 			children = (
+				EA20665C2786CE9D00B96F22 /* crystal_src */,
+				EA20663E2786CE4E00B96F22 /* authtron-core */,
 				EA864F7D2759E50E0027D5A0 /* AppDelegate.swift */,
 				EA864F7F2759E50E0027D5A0 /* SceneDelegate.swift */,
 				EA864F812759E50E0027D5A0 /* ViewController.swift */,
+				EA8840192761CC3C00338D1A /* scanController.swift */,
+				EA8840172761CBFE00338D1A /* informTableViewController.swift */,
+				EA3CCA3C276C636E00E1CD12 /* httptaskClass.swift */,
+				EA884087276B23F800338D1A /* genJWT.swift */,
+				EA8840152761CBB000338D1A /* cameraAuthorize.swift */,
+				EA864F94275DB66A0027D5A0 /* UDPlistener.swift */,
+				EA3CCCF3277D607500E1CD12 /* processUdpData.swift */,
+				EA3CCA4B2775CB1800E1CD12 /* getIP.swift */,
 				EA864F832759E50E0027D5A0 /* Main.storyboard */,
 				EA864F862759E50F0027D5A0 /* Assets.xcassets */,
 				EA864F882759E50F0027D5A0 /* LaunchScreen.storyboard */,
 				EA864F8B2759E50F0027D5A0 /* Info.plist */,
+				EA884089276B251500338D1A /* CDSave.xcdatamodeld */,
+				EA2066F72786CFF900B96F22 /* authTronCore_self.h */,
+				EA2066F82786CFF900B96F22 /* authTronCore_self.c */,
+				EA2066FA2786D04200B96F22 /* canvas-Bridging-Header.h */,
+				EA2066FD2786D3EE00B96F22 /* ATCattkey.swift */,
+				EAB83C66278D2F9D004534C9 /* AESSHA.swift */,
+				EA2066FF2786D40700B96F22 /* ATCmasterkey.swift */,
+				EA2067012786D41D00B96F22 /* ATCecdsa.swift */,
+				EA2067032786D42900B96F22 /* ATCecdh.swift */,
+				EA2067052786D43B00B96F22 /* ATCstorage.swift */,
+				EAFF42FE2788129D000FBF1E /* iniKey.swift */,
+				EAFF4302278828FB000FBF1E /* IDstorage.swift */,
+				EA3CCCF2277C35CD00E1CD12 /* MyPlayground.playground */,
 			);
 			path = canvas;
 			sourceTree = "<group>";
@@ -127,6 +595,7 @@
 			files = (
 				EA864F8A2759E50F0027D5A0 /* LaunchScreen.storyboard in Resources */,
 				EA864F872759E50F0027D5A0 /* Assets.xcassets in Resources */,
+				EA2066F62786CE9D00B96F22 /* README.md in Resources */,
 				EA864F852759E50E0027D5A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +607,82 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA88401A2761CC3C00338D1A /* scanController.swift in Sources */,
+				EA2066E32786CE9D00B96F22 /* ecp_double_impl.c in Sources */,
+				EA2066DE2786CE9D00B96F22 /* ecp_aux.c in Sources */,
+				EA2066EE2786CE9D00B96F22 /* ccm.c in Sources */,
+				EA864F95275DB66A0027D5A0 /* UDPlistener.swift in Sources */,
+				EA2066592786CE4E00B96F22 /* authTronCore_cbor_cmd_reset.c in Sources */,
+				EA2066DB2786CE9D00B96F22 /* ecp_normalize.c in Sources */,
+				EAB83C67278D2F9D004534C9 /* AESSHA.swift in Sources */,
+				EA2066D02786CE9D00B96F22 /* mpbn_word.c in Sources */,
+				EA2066CA2786CE9D00B96F22 /* sha2_512.c in Sources */,
+				EA2066532786CE4E00B96F22 /* authTronCore_cbor_cmd_getinfo.c in Sources */,
+				EA2066CD2786CE9D00B96F22 /* div_util.c in Sources */,
+				EA2066C92786CE9D00B96F22 /* sha1.c in Sources */,
+				EA2066EF2786CE9D00B96F22 /* cmac.c in Sources */,
+				EA2066E92786CE9D00B96F22 /* hmac.c in Sources */,
+				EA88408B276B251500338D1A /* CDSave.xcdatamodeld in Sources */,
+				EA2066F42786CE9D00B96F22 /* ecdsa.c in Sources */,
+				EA2066ED2786CE9D00B96F22 /* gcm.c in Sources */,
+				EA2066CF2786CE9D00B96F22 /* mpbn_prime.c in Sources */,
+				EA2066582786CE4E00B96F22 /* authTronCore_cbor_cmd_handler.c in Sources */,
+				EA2066F52786CE9D00B96F22 /* drng.c in Sources */,
+				EA2066E62786CE9D00B96F22 /* crystal_mem.c in Sources */,
+				EA2066CC2786CE9D00B96F22 /* mpbn_arith.c in Sources */,
+				EA2066E42786CE9D00B96F22 /* crystal_platform.c in Sources */,
+				EA2066CE2786CE9D00B96F22 /* mpbn_mod_inv.c in Sources */,
+				EA8840182761CBFE00338D1A /* informTableViewController.swift in Sources */,
+				EA8840162761CBB000338D1A /* cameraAuthorize.swift in Sources */,
+				EA2066562786CE4E00B96F22 /* authTronCore_u2f_cmd.c in Sources */,
+				EA2066D12786CE9D00B96F22 /* mpbn_mont.c in Sources */,
+				EA2066D42786CE9D00B96F22 /* hash_drbg.c in Sources */,
+				EA2066F32786CE9D00B96F22 /* ecc.c in Sources */,
+				EA3CCA3D276C636E00E1CD12 /* httptaskClass.swift in Sources */,
+				EA2066CB2786CE9D00B96F22 /* sha3.c in Sources */,
+				EA2066D32786CE9D00B96F22 /* mpbn_arith_mod.c in Sources */,
+				EA2066572786CE4E00B96F22 /* authTronCore_cbor_cmd_makecredential.c in Sources */,
+				EA2066D82786CE9D00B96F22 /* aes_tables.c in Sources */,
+				EA2067062786D43B00B96F22 /* ATCstorage.swift in Sources */,
+				EA2066552786CE4E00B96F22 /* authTronCore_cbor_check_params.c in Sources */,
+				EA2066C82786CE9D00B96F22 /* sha2_256.c in Sources */,
 				EA864F822759E50E0027D5A0 /* ViewController.swift in Sources */,
+				EA2066DF2786CE9D00B96F22 /* ecp.c in Sources */,
+				EA2066F02786CE9D00B96F22 /* block_cipher_util.c in Sources */,
+				EA2066E72786CE9D00B96F22 /* crystal_hdrbg.c in Sources */,
+				EA884088276B23F800338D1A /* genJWT.swift in Sources */,
+				EA2066F22786CE9D00B96F22 /* ecdh.c in Sources */,
+				EA2066DC2786CE9D00B96F22 /* ecp_normalize_impl.c in Sources */,
+				EA3CCCF4277D607500E1CD12 /* processUdpData.swift in Sources */,
+				EA20665A2786CE4E00B96F22 /* authTronCore_cbor_cmd_clientpin.c in Sources */,
 				EA864F7E2759E50E0027D5A0 /* AppDelegate.swift in Sources */,
+				EA2066D52786CE9D00B96F22 /* aes.c in Sources */,
+				EA2066D22786CE9D00B96F22 /* mpbn_util.c in Sources */,
+				EA2066542786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.c in Sources */,
+				EAFF42FF2788129D000FBF1E /* iniKey.swift in Sources */,
+				EA2067002786D40700B96F22 /* ATCmasterkey.swift in Sources */,
+				EA2066E12786CE9D00B96F22 /* ecp_double.c in Sources */,
 				EA864F802759E50E0027D5A0 /* SceneDelegate.swift in Sources */,
+				EA2066D92786CE9D00B96F22 /* ecp_aux_impl.c in Sources */,
+				EA2066E22786CE9D00B96F22 /* ecp_add_impl.c in Sources */,
+				EA2066EB2786CE9D00B96F22 /* block_cipher.c in Sources */,
+				EA3CCA4C2775CB1800E1CD12 /* getIP.swift in Sources */,
+				EA2066DD2786CE9D00B96F22 /* ecp_scalar_mult.c in Sources */,
+				EA2066DA2786CE9D00B96F22 /* ecp_add.c in Sources */,
+				EA2066C72786CE9D00B96F22 /* mpi.c in Sources */,
+				EA2066D62786CE9D00B96F22 /* aes_algo.c in Sources */,
+				EA2067042786D42900B96F22 /* ATCecdh.swift in Sources */,
+				EA2066E82786CE9D00B96F22 /* crystal_hash.c in Sources */,
+				EA2066FE2786D3EE00B96F22 /* ATCattkey.swift in Sources */,
+				EA2066E02786CE9D00B96F22 /* ecp_curve_dp.c in Sources */,
+				EA2067022786D41D00B96F22 /* ATCecdsa.swift in Sources */,
+				EA20665B2786CE4E00B96F22 /* authTronCore_authenticator.c in Sources */,
+				EA2066EC2786CE9D00B96F22 /* xts.c in Sources */,
+				EA2066F12786CE9D00B96F22 /* crystal_init.c in Sources */,
+				EAFF4303278828FB000FBF1E /* IDstorage.swift in Sources */,
+				EA2066F92786CFF900B96F22 /* authTronCore_self.c in Sources */,
+				EA2066E52786CE9D00B96F22 /* crystal_util.c in Sources */,
+				EA2066EA2786CE9D00B96F22 /* hash.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,12 +759,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "canvas/canvas-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -272,11 +815,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "canvas/canvas-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -360,6 +904,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EA884089276B251500338D1A /* CDSave.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EA88408A276B251500338D1A /* CDSave.xcdatamodel */,
+			);
+			currentVersion = EA88408A276B251500338D1A /* CDSave.xcdatamodel */;
+			path = CDSave.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EA864F722759E50E0027D5A0 /* Project object */;
 }
