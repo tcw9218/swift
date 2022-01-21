@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EA864F792759E50E0027D5A0"
-               BuildableName = "canvas.app"
-               BlueprintName = "canvas"
-               ReferencedContainer = "container:canvas.xcodeproj">
+               BuildableName = "ATMtest.app"
+               BlueprintName = "ATMtest"
+               ReferencedContainer = "container:ATMtest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA864F792759E50E0027D5A0"
-            BuildableName = "canvas.app"
-            BlueprintName = "canvas"
-            ReferencedContainer = "container:canvas.xcodeproj">
+            BuildableName = "ATMtest.app"
+            BlueprintName = "ATMtest"
+            ReferencedContainer = "container:ATMtest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EA864F792759E50E0027D5A0"
-            BuildableName = "canvas.app"
-            BlueprintName = "canvas"
-            ReferencedContainer = "container:canvas.xcodeproj">
+            BuildableName = "ATMtest.app"
+            BlueprintName = "ATMtest"
+            ReferencedContainer = "container:ATMtest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

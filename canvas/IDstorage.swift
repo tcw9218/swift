@@ -11,7 +11,7 @@ import UIKit
 
 class IDstorage : UIViewController{
 
-    func setDaemon( daemon_in : String ,  server_in : String){
+    func setDaemon( daemon_in : String ){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<ID_Storage>(entityName: "ID_Storage")
 
@@ -22,8 +22,6 @@ class IDstorage : UIViewController{
              if(entitiesCount == 0){   // first write
                  let core_1 = NSEntityDescription.insertNewObject(forEntityName: "ID_Storage", into: context) as! ID_Storage
                  core_1.daemonid = daemon_in
-                 core_1.server = server_in
-
                  do{
                      try context.save()
                      print("first write daemon")
@@ -37,8 +35,7 @@ class IDstorage : UIViewController{
                      do{
                          let dateInfoUpdate = try context.fetch(fetchRequest)
                          dateInfoUpdate[0].daemonid = daemon_in
-                         dateInfoUpdate[0].server = server_in
-
+                         
                          do{
                              try context.save()
                              print(dateInfoUpdate[0])
@@ -46,7 +43,6 @@ class IDstorage : UIViewController{
 
                          } catch let createError{
                              print("Failed to update daemon: \(createError)")
-
                          }
                      }catch let fetchError{
                          print("Failed to update daemon fetch : \(fetchError)")
@@ -58,4 +54,8 @@ class IDstorage : UIViewController{
 
              }
          }
+    
+    func deleteDaemon(){
+        
     }
+}

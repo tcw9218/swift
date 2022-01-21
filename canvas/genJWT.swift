@@ -38,27 +38,27 @@ extension Data {
 }
 struct Query_Bind_Stat_Payload:Encodable{
     var AID = "0d43bacc-abcd-49b2-8825-ae21c0e46783"
-    var TIME = "time"
+    var TIME = "2022"
     
 }
 
 struct Bind_Payload:Encodable{
     var AID = "0d43bacc-abcd-49b2-8825-ae21c0e46783"
     var DID = "e"
-    var TIME = "time"
+    var TIME = "2022"
 }
 
 struct dereg_Payload : Encodable{
     var ID = "0d43bacc-abcd-49b2-8825-ae21c0e46783"
     var TYPE = "A"
-    var TIME = "time"
+    var TIME = "2022"
 }
 
 struct heartBeat_Payload:Encodable{
     var AID = "0d43bacc-abcd-49b2-8825-ae21c0e46783"
     var IP = ""
     var PORT = "7890"
-    var TIME = "time"
+    var TIME = "2022"
 }
 
 class  genJWT{

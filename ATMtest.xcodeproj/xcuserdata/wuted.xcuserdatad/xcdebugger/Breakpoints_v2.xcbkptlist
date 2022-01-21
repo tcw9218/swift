@@ -39,54 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7FDF544C-6AF8-4FEA-8556-56BA94B732C4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "canvas/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B8E45E71-4E97-47E6-BF91-5B13B80D83A3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "canvas/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "021760CD-A3DC-4992-9EC2-84C49378EA46"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "canvas/iniKey.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "setall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7CC920D8-BCB7-4DE7-A707-2D275AFE93A2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -638,8 +590,8 @@
             filePath = "canvas/processUdpData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
@@ -926,8 +878,8 @@
             filePath = "../authtron-core/authTronCore_cbor_cmd_getassertion.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
             landmarkName = "authTronCore_cbor_cmd_getassertion(isNextAssert, global_ASP, data, dataLen, outbuf, outbufLen, userConsent)"
             landmarkType = "9">
          </BreakpointContent>
@@ -942,8 +894,8 @@
             filePath = "../authtron-core/authTronCore_cbor_cmd_getassertion.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "authTronCore_cbor_cmd_getassertion(isNextAssert, global_ASP, data, dataLen, outbuf, outbufLen, userConsent)"
             landmarkType = "9">
          </BreakpointContent>
@@ -958,8 +910,8 @@
             filePath = "../authtron-core/authTronCore_cbor_cmd_getassertion.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "438"
-            endingLineNumber = "438"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "authTronCore_cbor_cmd_getassertion(isNextAssert, global_ASP, data, dataLen, outbuf, outbufLen, userConsent)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1072,7 +1024,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "setDaemon(daemon_in:server_in:)"
+            landmarkName = "setDaemon(daemon_in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1086,8 +1038,8 @@
             filePath = "canvas/httptaskClass.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "getAllItemInfo(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1102,8 +1054,8 @@
             filePath = "canvas/httptaskClass.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "getAllItemInfo(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1118,8 +1070,8 @@
             filePath = "canvas/httptaskClass.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "getAllItemInfo(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1134,9 +1086,41 @@
             filePath = "canvas/httptaskClass.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "getAllItemInfo(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B65BE9C8-76DF-4FAD-9ED0-E55F136A7A94"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "canvas/Viewcontroller/FinalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F977DCBF-9B37-47C1-BC0C-4703D42F6FAE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "canvas/Viewcontroller/RegisteredController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

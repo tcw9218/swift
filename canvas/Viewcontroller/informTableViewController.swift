@@ -11,6 +11,16 @@ import CoreData
 class informTableViewController: UITableViewController {
 
     
+    @IBAction func backFinal(){
+        toFinal()
+    }
+    func toFinal(){
+        let VC_Final = storyboard?.instantiateViewController(withIdentifier: "Final")as? FinalViewController
+        //print(view.window)
+        view.window?.rootViewController = VC_Final
+        view.window?.makeKeyAndVisible()
+    }
+    
     var daemon : [ID_Storage] = []
     func getdaemon(){
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{

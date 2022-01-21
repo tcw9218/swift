@@ -20,14 +20,14 @@ class iniKey{
     var ptr = UnsafeMutablePointer<UInt16>.allocate(capacity: 1)
     var certptr2 = UnsafeMutablePointer<UInt8>.allocate(capacity: 561)
     
-    var ASP : UnsafeMutablePointer<ASP_Data>
+    //var ASP : UnsafeMutablePointer<ASP_Data>
     var key_state = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
     
     
     
-    init(_ asp : UnsafeMutablePointer<ASP_Data> ){
-        self.ASP = asp
-    }
+//    init(_ asp : UnsafeMutablePointer<ASP_Data> ){
+//        self.ASP = asp
+//    }
     
     func setall(){
         let ATCattKey = ATCattKey()
@@ -77,9 +77,8 @@ class iniKey{
         ATC_ADP_store_set(3, 16, uuidptr)//aaguid
         ATC_ADP_store_set(4, 561, cert0ptr)
         key_state.initialize(repeating: 0, count: 1)
-        //ATC_ADP_ecdsa256_attkey_destroy()
         ATC_ADP_ecdsa256_attkey_state(key_state)
-        //ctap_handler_init(ASP)
+        
         if(key_state.pointee == 0){
             //key set
             ATC_ADP_ecdsa256_attkey_set(att_privatekey, att_publickey)
@@ -87,27 +86,6 @@ class iniKey{
         }else{
             print("attkey is already existed")
         }
-//        var aaguidppt = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
-//        aaguidppt.initialize(repeating: 0, count: 16)
-//        var aaguidlth = UnsafeMutablePointer<UInt16>.allocate(capacity: 1)
-//        ATC_ADP_store_get(3,aaguidlth , aaguidppt)
-//        for i in 0..<16{
-//            print("aaguid :\(aaguidppt[i])")
-//        }
-//        att_publickey.deallocate()
-//        att_privatekey.deallocate()
-//        uuidptr.deallocate()
-//        cert0ptr.deallocate()
-//        certptr2.deallocate()
-//        key_state.deallocate()
-//        ptr.deallocate()
-       
-    }
-    func ASPstate(){
-        print("state:: \(ASP[0].state)")
-    }
-    func deletattkey(){
-        ATC_ADP_ecdsa256_attkey_destroy()
     }
 }
 

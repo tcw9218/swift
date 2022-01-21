@@ -133,6 +133,10 @@ class processUdpData{
                 istouched = false
                 
             }
+//            MARK: FACEID TODO
+            else if(iCborResult == 65535){ // faceid
+                //DispatchQueue.main.async{self.ctapBtn.isHidden = false}
+            }
             else if(iCborResult > 0){
                 let sendLength = iCborResult + 3 + 116
                 self.sendLength = Int(sendLength)

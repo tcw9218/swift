@@ -85,6 +85,8 @@
 		EA884088276B23F800338D1A /* genJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA884087276B23F800338D1A /* genJWT.swift */; };
 		EA88408B276B251500338D1A /* CDSave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA884089276B251500338D1A /* CDSave.xcdatamodeld */; };
 		EAB83C67278D2F9D004534C9 /* AESSHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB83C66278D2F9D004534C9 /* AESSHA.swift */; };
+		EAB83D8E2797B71C004534C9 /* RegisteredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB83D8D2797B71C004534C9 /* RegisteredController.swift */; };
+		EAB83D902797D404004534C9 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB83D8F2797D404004534C9 /* FinalViewController.swift */; };
 		EAFF42FF2788129D000FBF1E /* iniKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF42FE2788129D000FBF1E /* iniKey.swift */; };
 		EAFF4303278828FB000FBF1E /* IDstorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF4302278828FB000FBF1E /* IDstorage.swift */; };
 /* End PBXBuildFile section */
@@ -213,7 +215,7 @@
 		EA3CCA4B2775CB1800E1CD12 /* getIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIP.swift; sourceTree = "<group>"; };
 		EA3CCCF2277C35CD00E1CD12 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EA3CCCF3277D607500E1CD12 /* processUdpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = processUdpData.swift; sourceTree = "<group>"; };
-		EA864F7A2759E50E0027D5A0 /* canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA864F7A2759E50E0027D5A0 /* ATMtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA864F7D2759E50E0027D5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA864F7F2759E50E0027D5A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA864F812759E50E0027D5A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,8 @@
 		EA884087276B23F800338D1A /* genJWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genJWT.swift; sourceTree = "<group>"; };
 		EA88408A276B251500338D1A /* CDSave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDSave.xcdatamodel; sourceTree = "<group>"; };
 		EAB83C66278D2F9D004534C9 /* AESSHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESSHA.swift; sourceTree = "<group>"; };
+		EAB83D8D2797B71C004534C9 /* RegisteredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredController.swift; sourceTree = "<group>"; };
+		EAB83D8F2797D404004534C9 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		EAFF42FE2788129D000FBF1E /* iniKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iniKey.swift; sourceTree = "<group>"; };
 		EAFF4302278828FB000FBF1E /* IDstorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDstorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -493,7 +497,7 @@
 		EA864F7B2759E50E0027D5A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EA864F7A2759E50E0027D5A0 /* canvas.app */,
+				EA864F7A2759E50E0027D5A0 /* ATMtest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -505,15 +509,16 @@
 				EA20663E2786CE4E00B96F22 /* authtron-core */,
 				EA864F7D2759E50E0027D5A0 /* AppDelegate.swift */,
 				EA864F7F2759E50E0027D5A0 /* SceneDelegate.swift */,
-				EA864F812759E50E0027D5A0 /* ViewController.swift */,
-				EA8840192761CC3C00338D1A /* scanController.swift */,
-				EA8840172761CBFE00338D1A /* informTableViewController.swift */,
+				EA94B54B27994B7E00A9C24C /* ATCrelated */,
+				EA94B5092798F10000A9C24C /* Viewcontroller */,
 				EA3CCA3C276C636E00E1CD12 /* httptaskClass.swift */,
 				EA884087276B23F800338D1A /* genJWT.swift */,
 				EA8840152761CBB000338D1A /* cameraAuthorize.swift */,
 				EA864F94275DB66A0027D5A0 /* UDPlistener.swift */,
 				EA3CCCF3277D607500E1CD12 /* processUdpData.swift */,
 				EA3CCA4B2775CB1800E1CD12 /* getIP.swift */,
+				EAFF42FE2788129D000FBF1E /* iniKey.swift */,
+				EAFF4302278828FB000FBF1E /* IDstorage.swift */,
 				EA864F832759E50E0027D5A0 /* Main.storyboard */,
 				EA864F862759E50F0027D5A0 /* Assets.xcassets */,
 				EA864F882759E50F0027D5A0 /* LaunchScreen.storyboard */,
@@ -522,25 +527,42 @@
 				EA2066F72786CFF900B96F22 /* authTronCore_self.h */,
 				EA2066F82786CFF900B96F22 /* authTronCore_self.c */,
 				EA2066FA2786D04200B96F22 /* canvas-Bridging-Header.h */,
+				EA3CCCF2277C35CD00E1CD12 /* MyPlayground.playground */,
+			);
+			path = canvas;
+			sourceTree = "<group>";
+		};
+		EA94B5092798F10000A9C24C /* Viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				EA864F812759E50E0027D5A0 /* ViewController.swift */,
+				EAB83D8D2797B71C004534C9 /* RegisteredController.swift */,
+				EAB83D8F2797D404004534C9 /* FinalViewController.swift */,
+				EA8840192761CC3C00338D1A /* scanController.swift */,
+				EA8840172761CBFE00338D1A /* informTableViewController.swift */,
+			);
+			path = Viewcontroller;
+			sourceTree = "<group>";
+		};
+		EA94B54B27994B7E00A9C24C /* ATCrelated */ = {
+			isa = PBXGroup;
+			children = (
 				EA2066FD2786D3EE00B96F22 /* ATCattkey.swift */,
 				EAB83C66278D2F9D004534C9 /* AESSHA.swift */,
 				EA2066FF2786D40700B96F22 /* ATCmasterkey.swift */,
 				EA2067012786D41D00B96F22 /* ATCecdsa.swift */,
 				EA2067032786D42900B96F22 /* ATCecdh.swift */,
 				EA2067052786D43B00B96F22 /* ATCstorage.swift */,
-				EAFF42FE2788129D000FBF1E /* iniKey.swift */,
-				EAFF4302278828FB000FBF1E /* IDstorage.swift */,
-				EA3CCCF2277C35CD00E1CD12 /* MyPlayground.playground */,
 			);
-			path = canvas;
+			path = ATCrelated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EA864F792759E50E0027D5A0 /* canvas */ = {
+		EA864F792759E50E0027D5A0 /* ATMtest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EA864F8E2759E50F0027D5A0 /* Build configuration list for PBXNativeTarget "canvas" */;
+			buildConfigurationList = EA864F8E2759E50F0027D5A0 /* Build configuration list for PBXNativeTarget "ATMtest" */;
 			buildPhases = (
 				EA864F762759E50E0027D5A0 /* Sources */,
 				EA864F772759E50E0027D5A0 /* Frameworks */,
@@ -550,9 +572,9 @@
 			);
 			dependencies = (
 			);
-			name = canvas;
+			name = ATMtest;
 			productName = canvas;
-			productReference = EA864F7A2759E50E0027D5A0 /* canvas.app */;
+			productReference = EA864F7A2759E50E0027D5A0 /* ATMtest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -564,13 +586,14 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
+				ORGANIZATIONNAME = com.ikv.ATMtest;
 				TargetAttributes = {
 					EA864F792759E50E0027D5A0 = {
 						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
-			buildConfigurationList = EA864F752759E50E0027D5A0 /* Build configuration list for PBXProject "canvas" */;
+			buildConfigurationList = EA864F752759E50E0027D5A0 /* Build configuration list for PBXProject "ATMtest" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -583,7 +606,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EA864F792759E50E0027D5A0 /* canvas */,
+				EA864F792759E50E0027D5A0 /* ATMtest */,
 			);
 		};
 /* End PBXProject section */
@@ -658,9 +681,11 @@
 				EA864F7E2759E50E0027D5A0 /* AppDelegate.swift in Sources */,
 				EA2066D52786CE9D00B96F22 /* aes.c in Sources */,
 				EA2066D22786CE9D00B96F22 /* mpbn_util.c in Sources */,
+				EAB83D8E2797B71C004534C9 /* RegisteredController.swift in Sources */,
 				EA2066542786CE4E00B96F22 /* authTronCore_cbor_cmd_getassertion.c in Sources */,
 				EAFF42FF2788129D000FBF1E /* iniKey.swift in Sources */,
 				EA2067002786D40700B96F22 /* ATCmasterkey.swift in Sources */,
+				EAB83D902797D404004534C9 /* FinalViewController.swift in Sources */,
 				EA2066E12786CE9D00B96F22 /* ecp_double.c in Sources */,
 				EA864F802759E50E0027D5A0 /* SceneDelegate.swift in Sources */,
 				EA2066D92786CE9D00B96F22 /* ecp_aux_impl.c in Sources */,
@@ -759,7 +784,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -815,7 +840,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -833,9 +858,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R378B8CKR4;
+				DEVELOPMENT_TEAM = S7V44V384Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = canvas/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "to scan QRcode fet information";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "use FaceId to authenticate";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -845,8 +872,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ikv.tw.canvas;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikv.ATMtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -861,9 +888,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R378B8CKR4;
+				DEVELOPMENT_TEAM = S7V44V384Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = canvas/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "to scan QRcode fet information";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "use FaceId to authenticate";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -873,8 +902,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ikv.tw.canvas;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikv.ATMtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -885,7 +914,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EA864F752759E50E0027D5A0 /* Build configuration list for PBXProject "canvas" */ = {
+		EA864F752759E50E0027D5A0 /* Build configuration list for PBXProject "ATMtest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EA864F8C2759E50F0027D5A0 /* Debug */,
@@ -894,7 +923,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA864F8E2759E50F0027D5A0 /* Build configuration list for PBXNativeTarget "canvas" */ = {
+		EA864F8E2759E50F0027D5A0 /* Build configuration list for PBXNativeTarget "ATMtest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EA864F8F2759E50F0027D5A0 /* Debug */,
