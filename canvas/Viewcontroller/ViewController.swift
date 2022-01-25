@@ -11,10 +11,15 @@ import CoreData
 
 class ViewController: UIViewController {
     
-    let documentDirectoryUrl = try! FileManager.default.url(
-       for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true
-    )
+//    let documentDirectoryUrl = try! FileManager.default.url(
+//       for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true
+//    )
     var state = "installed"
+    var timer : Timer?
+    var server = ""
+    var observation: NSKeyValueObservation?
+    let defaults = UserDefaults.standard
+    let selfip = getip().getIpAddress()
 
 //    MARK: SETNAME
     @IBOutlet weak var setnamebtn : UIButton!
@@ -25,16 +30,11 @@ class ViewController: UIViewController {
         displayname = setnametext.text!
         defaults.set(displayname, forKey: "displayname")
         defaults.set("set_name", forKey: "state")
-        setnamebtn.alpha = 0
-        setnametext.alpha = 0
+        setnamebtn.isHidden = true
+        setnametext.isHidden = true
         toReigstered()
     }
-    func toReigstered(){
-        let VC_Registered = storyboard?.instantiateViewController(withIdentifier: "Registered")as? RegisteredController
-        //print(view.window)
-        view.window?.rootViewController = VC_Registered
-        view.window?.makeKeyAndVisible()
-    }
+  
     
     func displayName(state : String){
          let state = defaults.string(forKey: "state")
@@ -52,47 +52,38 @@ class ViewController: UIViewController {
             }
         }
     
+    func toReigstered(){
+        let VC_Registered = storyboard?.instantiateViewController(withIdentifier: "Registered")as? RegisteredController
+        //print(view.window)
+        view.window?.rootViewController = VC_Registered
+        view.window?.makeKeyAndVisible()
+    }
+    
     func toFinal(){
         let VC_Final = storyboard?.instantiateViewController(withIdentifier: "Final")as? FinalViewController
         view.window?.rootViewController = VC_Final
         view.window?.makeKeyAndVisible()
     }
-    
-    
-
-    
-    var timer : Timer?
-    var server = ""
-    var observation: NSKeyValueObservation?
-    let defaults = UserDefaults.standard
-    //@objc dynamic let HttptoPost = httpTaskClass()
-    let selfip = getip().getIpAddress()
-
-    
 
 
     override func viewDidLoad() {
         //print("File path \(documentDirectoryUrl.path)")
         let state_saved = defaults.string(forKey: "state")
         if(state_saved == nil ){
-            print("first login")
+            print("just installed app")
         }else{
-            print("not first login :: \(state_saved!)")
+            print("not just installed app :: \(state_saved!)")
             state = state_saved!
             
         }
         if(state == "installed"){
-            let timestamp = NSDate().timeIntervalSince1970
+            //let timestamp = NSDate().timeIntervalSince1970
             let UUID = UUID.init().uuidString
             defaults.set(UUID, forKey: "UUID")
             print("renew UUID")
             
             state = "initialized"
             defaults.set("initialized", forKey: "state")
-//            if(cameraAuthorize().authorize() ){
-//                print("camera ok")
-//            }
-           
         }
         
         let inikey = iniKey()

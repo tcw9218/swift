@@ -24,10 +24,10 @@ class ATCecdsa {
             var item: CFTypeRef?
             var statusRetr = SecItemCopyMatching(ecdsaquery as CFDictionary, &item)
             if statusRetr == errSecSuccess{
-                print("ecdsakey is exist")
+                print("nonrkkey is exist")
                 let deletestatusEcdsa = SecItemDelete(ecdsaquery as CFDictionary)
                 if(deletestatusEcdsa == errSecSuccess){
-                    print("delete ecdsakey")
+                    print("delete nonrkkey")
                 }
             }
     //random(as privatekey)
@@ -229,9 +229,10 @@ class ATCecdsa {
                                        kSecAttrApplicationTag as String: tag]
       
         let deletestatusPri = SecItemDelete(deletequeryPri as CFDictionary)
-        
+        print(deletestatusPri)
         if ( deletestatusPri == errSecSuccess ){
-            print("delete success")
+            
+            print("ATC_ecdsa_rkDestroy success")
             return 0
         }else{
             return 1}

@@ -14,21 +14,25 @@ class processUdpData{
     
     var data_in : Data
     
-    var ASP : UnsafeMutablePointer<ASP_Data>
+   
+   
     var sendLength = 0
-    var udpaddress : NWConnection
+    var udpaddress : NWConnection?
     
     var istouched = false
-    var ctapBtn : UIButton
+    //weak var ctapBtn : UIButton!
+    //weak var ctapBtn2 : UIButton!
+
     let notify_userAround = Notification.Name("userIsAround")
+//    init(_ ASP : UnsafeMutablePointer<ASP_Data>,_ data : Data , _ btn :UIButton ,_ btn2 :UIButton , _ nwdestination : NWConnection)
     
-    init(_ ASP : UnsafeMutablePointer<ASP_Data>,_ data : Data , _ btn :UIButton , _ nwdestination : NWConnection){
+    init(_ data : Data , _ nwdestination : NWConnection){
         self.data_in = data
-        self.ASP = ASP
-        self.ctapBtn = btn
+     
         self.udpaddress = nwdestination
         NotificationCenter.default.addObserver(self, selector: #selector(checkTapbtn(notification:)), name: notify_userAround, object: nil)
         print("udpprocess init")
+        print("inUDP4gloasp: \(GLOASP.gloasp)")
     }
     
     
@@ -81,7 +85,7 @@ class processUdpData{
         
         if(ctap_cmd == 0x90){ // CBOR
             
-            var iCborResult = authTronCore_cbor_cmd_handler(ASP, ctap_msg, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, false)
+            var iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, ctap_msg, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, false)
             
             
             
@@ -91,7 +95,18 @@ class processUdpData{
                 for _ in 0..<120{  // length 116+ 4
                     dataout.append(0)
                 }
-                DispatchQueue.main.async{self.ctapBtn.isHidden = false}
+//                MARK: 0125
+                let cbor00 = Notification.Name("cbor00")
+                NotificationCenter.default.post(name: cbor00, object: nil)
+               
+//                DispatchQueue.main.async{
+//
+//                    print(self.ctapBtn.isHidden)
+//                    print(self.ctapBtn2.isHidden)
+//                    self.ctapBtn.isHidden = false
+//                    //self.ctapBtn2.isHidden = false
+//
+//                }
                
                 while(!istouched){//if false send keep alive
 
@@ -105,7 +120,7 @@ class processUdpData{
                     dataout[115] = 0x02
 
 
-                    udpaddress.send(content: dataout, completion:NWConnection.SendCompletion.contentProcessed(
+                    udpaddress!.send(content: dataout, completion:NWConnection.SendCompletion.contentProcessed(
                             ({(NWError) in
                                 if (NWError == nil) {
                                 //print("haaallllttttt")
@@ -117,7 +132,7 @@ class processUdpData{
                 }
 
                 
-                iCborResult = authTronCore_cbor_cmd_handler(ASP, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, true)
+                iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, true)
                 print("has pressed button")
                 //print("sendddingbuf::\(sendbuf[115])")
                
@@ -150,7 +165,7 @@ class processUdpData{
 
         }
         else if(ctap_cmd == 0x83 ){ //U2F
-
+            print("U2F")
             
             
             
@@ -166,6 +181,7 @@ class processUdpData{
        
         receive_payload.deallocate()
         ctap_msg.deallocate()
+        buf_ptr.deallocate()
         sendbuf.deallocate()
         cbor0.deallocate()
         return Data(dataout)

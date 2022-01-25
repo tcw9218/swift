@@ -97,6 +97,12 @@ class ATCattKey{
             
                 signature.initialize(from: sig_r, count: 32)
                 signature.advanced(by: 32).initialize(from: sig_s, count: 32)
+                
+                sig_r.deallocate()
+                sig_s.deallocate()
+                seed.deallocate()
+                random.deallocate()
+                attkeyptr.deallocate()
             return 0
             }else{
                 print("ATTkey status fail")

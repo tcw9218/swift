@@ -8,30 +8,36 @@ class listener {
     var udpListener:NWListener?
     var backgroundQueueUdpListener   = DispatchQueue(label: "udp-lis.bg.queue", attributes: [])
     var backgroundQueueUdpConnection = DispatchQueue(label: "udp-con.bg.queue", attributes: [])
-    var gloasp : UnsafeMutablePointer<ASP_Data>
-    var ctapBtn :UIButton
-    init(_ gloasp : UnsafeMutablePointer<ASP_Data> , _ Btn : UIButton){
-        self.gloasp = gloasp
-        self.ctapBtn = Btn
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(checkTapbtn(notification:)), name: notify_userAround, object: nil)
-        print("UDP init")
-    }
-//MARK: for user tap around
-//    let notify_userAround = Notification.Name("userIsAround")
-//    var istouched = false
-//    @objc func checkTapbtn(notification: NSNotification){
-//        print("received")
-//        istouched = true
-//
+    //var gloasp : UnsafeMutablePointer<ASP_Data>?
+    // var ctapBtn :UIButton!
+    // var ctapBtn2 :UIButton!
+    
+//    init(_ gloasp : UnsafeMutablePointer<ASP_Data> ){
+//        self.gloasp = gloasp
+//        print("inUDP1gloasp: \(self.gloasp!)")
+//       // self.ctapBtn = Btn
+//        //print(self.ctapBtn)
+//        //self.ctapBtn2 = Btn2
+//        print("UDP init")
 //    }
-   // var connections = [NWConnection]()
+    
     deinit{
         print(" UDPdeinit")
     }
+    
+    func stop(){
+        udpListener?.stateUpdateHandler = nil
+        udpListener?.newConnectionHandler = nil
+        udpListener?.cancel()
+        print("UDP stop")
+    }
+    
     func start() {
         do {
+            let params = NWParameters.udp
+            params.allowLocalEndpointReuse = true
             self.udpListener = try NWListener(using: .udp, on: 7890)
+            //self.udpListener = try NWListener(using: params, on: 7890)
             self.udpListener?.stateUpdateHandler = { (listenerState) in
                 print(" NWListener Handler called")
                 switch listenerState {
@@ -45,7 +51,7 @@ class listener {
                     print("Listener: Failed \(error)")
                     self.udpListener = nil
                 case .cancelled:
-                    print("Listener:  Cancelled by Button")
+                    print("Listener:  Cancelled by user")
 //                    for connection in self.connections {
 //                        connection.cancel()
 //                    }
@@ -95,13 +101,13 @@ class listener {
 
     func processData(_ incomingUdpConnection :NWConnection ) {
 
-        incomingUdpConnection.receiveMessage(completion: {(data, context, isComplete, error) in 
+        incomingUdpConnection.receiveMessage(completion: {[weak self](data, context, isComplete, error) in
             
             if let data = data, !data.isEmpty {
                 print("data in = \(data)")
-                
-                
-                    let proUDP = processUdpData(self.gloasp, data, self.ctapBtn , incomingUdpConnection)
+               //print("inUDP2gloasp: \(self!.gloasp!)")
+                let  proUDP = processUdpData( data, incomingUdpConnection)
+//                     let  proUDP = processUdpData(self!.gloasp, data, self!.ctapBtn ,self!.ctapBtn2 , incomingUdpConnection)
                     let dataout = proUDP.start()
                 
                 
@@ -116,10 +122,9 @@ class listener {
             }
             print ("isComplete = \(isComplete)")
             if error == nil {
-                self.processData(incomingUdpConnection )
+                self!.processData(incomingUdpConnection )
             }
-          }
-        )
+        })
     }
 }
 

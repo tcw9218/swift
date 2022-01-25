@@ -9,24 +9,37 @@ import UIKit
 
 class FinalViewController: UIViewController {
     
-    let Http = httpTaskClass()
+    
+    let glo_asp = UnsafeMutablePointer<ASP_Data>.allocate(capacity : 1)
+    var Http : httpTaskClass? = httpTaskClass()
     var server = ""
     let defaults = UserDefaults.standard
     var timer : Timer?
     var udplisten : listener?
     
-    
+    deinit{
+        print("fnail deinit")
+    }
     func toinform(){
-        let VC_ingform = storyboard?.instantiateViewController(withIdentifier: "inform")as? informTableViewController
+        let VC_inform = storyboard?.instantiateViewController(withIdentifier: "inform")as? informTableViewController
         //print(view.window)
-        view.window?.rootViewController = VC_ingform
+        view.window?.rootViewController = VC_inform
         view.window?.makeKeyAndVisible()
     }
+    
     func toReigstered(){
         let VC_Registered = storyboard?.instantiateViewController(withIdentifier: "Registered")as? RegisteredController
         //print(view.window)
         view.window?.rootViewController = VC_Registered
         view.window?.makeKeyAndVisible()
+    }
+    
+    func toFirst(){
+        let VC_First = storyboard?.instantiateViewController(withIdentifier: "First")as? ViewController
+        //print(view.window)
+        view.window?.rootViewController = VC_First
+        view.window?.makeKeyAndVisible()
+        
     }
 //    MARK: dropdown
     
@@ -43,78 +56,125 @@ class FinalViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    @IBAction  func selectbrn(){
+    @IBAction  func selectbtn(){
         showbtn()
     }
     
     @IBAction func showDaemonid(_ sender: Any) {
         toinform()
     }
+    
+    
     @IBAction func Deregister(_ sender: Any) {
-        Http.deregistered(server)
+        Http!.deregistered(server)
         //derigisterBtn.isHidden = true
-        defaults.set("set_name", forKey: "state")
+        defaults.set("installed", forKey: "state")
+        
         timer?.invalidate()
-        toReigstered()
+        ATC_ADP_master_key_destroy()
+        ATC_ADP_ecdsa256_attkey_destroy()
+        authenticator_reset()
+        glo_asp.deallocate()
+        toFirst()
     }
 //
     let selfip = getip().getIpAddress()
+    static var login  =  0
     @IBOutlet weak var uuid : UILabel!
     @IBOutlet weak var usrname : UILabel!
     @IBOutlet weak var ctapBtn : UIButton!
+    @IBOutlet weak var ctapBtn2 : UIButton!
     
     @IBAction func touchme(){
         print("touch me")
         let notify_userAround = Notification.Name("userIsAround")
         NotificationCenter.default.post(name: notify_userAround, object: nil)
-        ctapBtn.isHidden = true
+        ctapBtn.isHidden = !ctapBtn.isHidden
     }
+    @IBAction func touchme2(){
+        print("touch me2")
+       
+        ctapBtn2.isHidden = !ctapBtn2.isHidden
+    }
+    
 //    MARK: TODO
-    @IBOutlet weak var faceidbtn : UIButton!
-    @IBAction func showfaceID(){
-        print("faceid")
-        let notify_FACEID = Notification.Name("FACEID")
-        NotificationCenter.default.post(name: notify_FACEID, object: nil)
-        faceidbtn.isHidden = true
-    }
+//    @IBOutlet weak var faceidbtn : UIButton!
+//    @IBAction func showfaceID(){
+//        print("faceid")
+//        let notify_FACEID = Notification.Name("FACEID")
+//        NotificationCenter.default.post(name: notify_FACEID, object: nil)
+//        faceidbtn.isHidden = true
+//    }
     
 // 
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("viewDidDisappear")
+    }
     
  
     override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
         timer?.invalidate()
-        udplisten?.udpListener?.cancel()
+//        udplisten?.stop()
+//        udplisten = nil
+        Http = nil
+        //Http.Querybinding( server)
+    }
+    
+//    MARK: 0125
+    
+    @objc func showcbor(notification: NSNotification){
+        print(" showcbor received")
+        //print(ctapBtn)
+        DispatchQueue.main.async{
+            self.ctapBtn.isHidden = false
+            //print(self.ctapBtn)
+        }
+        
     }
 
     override func viewDidLoad() {
+        let GLOASP = GLOASP.gloasp
         //print("selfip:\(selfip)")
         //print("UUID:\(UUID.init())")
-       
+        print("GLOASP: \(GLOASP)")
+        let cbor00 = Notification.Name("cbor00")
+        NotificationCenter.default.addObserver(self, selector: #selector(showcbor(notification:)), name: cbor00, object: nil)
+        
         super.viewDidLoad()
         ctapBtn.isHidden = true
-        faceidbtn.isHidden = true
+        ctapBtn2.isHidden = true
+
+        print("udpprocess init")
+    
+    
+    
+  
+//        faceidbtn.isHidden = true
        // derigisterBtn.isHidden = false
         server =  defaults.string(forKey: "server") ?? ""
         let daemonid = defaults.string(forKey: "daemon_id")
        
         
 //        MARK: first check http server is exist
-        if(!Http.checkServer(server) ){
-            print("server notexist")
-        }else{
-            if(daemonid != nil){
-                Http.Querybinding( server)
-                //Http.getAllItemInfo(daemonid!, server)
-                timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
-                    self.Http.hearbeat(self.server, self.selfip!)
-                        })
+        if let Http = Http {
+            if(!Http.checkServer(server) ){
+                print("server notexist")
+            }else{
+                if(daemonid != nil){
+                    //Http.Querybinding( server)
+                    //Http.getAllItemInfo(daemonid!, server)
+                    timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self](timer) in
+                        self?.Http?.hearbeat(self!.server, self!.selfip!)
+                            })
+                }
             }
         }
         
-        let glo_asp = UnsafeMutablePointer<ASP_Data>.allocate(capacity : 1)
-        ctap_handler_init(glo_asp)
-        udplisten = listener( glo_asp , ctapBtn)
+  //      let glo_asp = UnsafeMutablePointer<ASP_Data>.allocate(capacity : 1)
+        ctap_handler_init(GLOASP)
+        print("gloasp: \(GLOASP)")
+        udplisten = listener(  )
         udplisten!.start()
         
         let user = defaults.string(forKey: "displayname")
@@ -141,4 +201,9 @@ class FinalViewController: UIViewController {
     }
     */
 
+}
+
+
+struct GLOASP {
+    static var gloasp = UnsafeMutablePointer<ASP_Data>.allocate(capacity: 1)
 }

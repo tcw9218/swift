@@ -38,7 +38,7 @@ class IDstorage : UIViewController{
                          
                          do{
                              try context.save()
-                             print(dateInfoUpdate[0])
+                             //print(dateInfoUpdate[0])
                              print("update daemon")
 
                          } catch let createError{
@@ -55,7 +55,34 @@ class IDstorage : UIViewController{
              }
          }
     
-    func deleteDaemon(){
+    func deleteDaemon(daemonid: String?){
+       
+        if let daemonid = daemonid {
+             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+             let fetchRequestDelete = NSFetchRequest<ID_Storage>(entityName: "ID_Storage")
+             fetchRequestDelete.predicate = NSPredicate(format: "daemonid == %@", daemonid)
+
+             do{
+                 let dateInfoDelete = try context.fetch(fetchRequestDelete)
+                 if(dateInfoDelete.count > 0){
+                     context.delete(dateInfoDelete[0])
+
+                     do{
+                         try context.save()
+                         //print(dateInfoDelete[0])
+                         print("delete daemon id")
+                       
+                     } catch let createError{
+                         print("Failed to update: \(createError)")
+                        
+                     }
+                 }
+             }catch{
+                 print("daemon_id not exist cant delete")
+             }
+        }else{
+            print("daemonid null")
+        }
         
     }
 }

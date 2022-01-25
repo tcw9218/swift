@@ -80,7 +80,6 @@ class iniKey{
         ATC_ADP_ecdsa256_attkey_state(key_state)
         
         if(key_state.pointee == 0){
-            //key set
             ATC_ADP_ecdsa256_attkey_set(att_privatekey, att_publickey)
             print("set attkey")
         }else{

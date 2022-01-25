@@ -38,7 +38,7 @@ class informTableViewController: UITableViewController {
         //print("indexpath :\(indexPath)")
         let cell = UITableViewCell()
         let selectedDaemon = daemon[indexPath.row]
-        print("selecdaemon:\(selectedDaemon.id)")
+        //print("selecdaemon:\(selectedDaemon.id)")
          //let id  = selectedToDo.id
         cell.textLabel?.text =  selectedDaemon.daemonid
         //print(cell.textLabel?.text)
