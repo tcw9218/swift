@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class FinalViewController: UIViewController {
     
@@ -16,6 +17,8 @@ class FinalViewController: UIViewController {
     let defaults = UserDefaults.standard
     var timer : Timer?
     var udplisten : listener?
+    
+//    @objc dynamic var FACEidresult = false
     
     deinit{
         print("fnail deinit")
@@ -85,43 +88,14 @@ class FinalViewController: UIViewController {
     @IBOutlet weak var ctapBtn : UIButton!
     @IBOutlet weak var ctapBtn2 : UIButton!
     
-    @IBAction func touchme(){
-        print("touch me")
-        let notify_userAround = Notification.Name("userIsAround")
-        NotificationCenter.default.post(name: notify_userAround, object: nil)
-        ctapBtn.isHidden = !ctapBtn.isHidden
-    }
-    @IBAction func touchme2(){
-        print("touch me2")
-       
-        ctapBtn2.isHidden = !ctapBtn2.isHidden
-    }
+
     
-//    MARK: TODO
-//    @IBOutlet weak var faceidbtn : UIButton!
-//    @IBAction func showfaceID(){
-//        print("faceid")
-//        let notify_FACEID = Notification.Name("FACEID")
-//        NotificationCenter.default.post(name: notify_FACEID, object: nil)
-//        faceidbtn.isHidden = true
-//    }
+
     
-// 
-    override func viewDidDisappear(_ animated: Bool) {
-        print("viewDidDisappear")
-    }
-    
+
  
-    override func viewWillDisappear(_ animated: Bool) {
-        print("viewWillDisappear")
-        timer?.invalidate()
-//        udplisten?.stop()
-//        udplisten = nil
-        Http = nil
-        //Http.Querybinding( server)
-    }
     
-//    MARK: 0125
+//    MARK: UPUV
     
     @objc func showcbor(notification: NSNotification){
         print(" showcbor received")
@@ -130,28 +104,92 @@ class FinalViewController: UIViewController {
             self.ctapBtn.isHidden = false
             //print(self.ctapBtn)
         }
+    }
+    @IBAction func touchme(){
+        print("touch me")
+        let notify_userAround = Notification.Name("userIsAround")
+        NotificationCenter.default.post(name: notify_userAround, object: nil)
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+      
+            let reason = "User Verification"
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+                if success {
+//                    DispatchQueue.main.async { [unowned self] in
+//                        self.showMessage(title: "Login Successful", message: nil)
+//                    }
+                    print("success")
+                    GLOASP.FACEidresult = true
+                } else {
+                    GLOASP.FACEidresult = false
+//                    DispatchQueue.main.async { [unowned self] in
+//                        self.showMessage(title: "Login Failed", message: error?.localizedDescription)
+//                    }
+                }
+            }
+        } else {
+            //showMessage(title: "Failed", message: error?.localizedDescription)
+        }
+       
+        ctapBtn.isHidden = !ctapBtn.isHidden
+    }
+   
+    @objc func showcborUV(notification: NSNotification){
+        print(" showcborUV received")
+        //print(ctapBtn)
+        DispatchQueue.main.async{
+            self.ctapBtn2.isHidden = false
+            //print(self.ctapBtn)
+        }
         
     }
+    @IBAction func touchme2(){
+        print("touch me2 UV")
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+      
+            let reason = "User Verification"
 
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+                if success {
+//                    DispatchQueue.main.async { [unowned self] in
+//                        self.showMessage(title: "Login Successful", message: nil)
+//                    }
+                    print("success")
+                    GLOASP.FACEidresult = true
+                } else {
+                    GLOASP.FACEidresult = false
+//                    DispatchQueue.main.async { [unowned self] in
+//                        self.showMessage(title: "Login Failed", message: error?.localizedDescription)
+//                    }
+                }
+            }
+        } else {
+            //showMessage(title: "Failed", message: error?.localizedDescription)
+        }
+       
+        ctapBtn2.isHidden = !ctapBtn2.isHidden
+    }
+    
+//MARK: viewdidload
     override func viewDidLoad() {
         let GLOASP = GLOASP.gloasp
+        
         //print("selfip:\(selfip)")
         //print("UUID:\(UUID.init())")
         print("GLOASP: \(GLOASP)")
         let cbor00 = Notification.Name("cbor00")
+        let UV = Notification.Name("cbor00uv")
         NotificationCenter.default.addObserver(self, selector: #selector(showcbor(notification:)), name: cbor00, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showcborUV(notification:)), name: UV, object: nil)
         
         super.viewDidLoad()
         ctapBtn.isHidden = true
         ctapBtn2.isHidden = true
 
-        print("udpprocess init")
-    
-    
-    
-  
-//        faceidbtn.isHidden = true
-       // derigisterBtn.isHidden = false
         server =  defaults.string(forKey: "server") ?? ""
         let daemonid = defaults.string(forKey: "daemon_id")
        
@@ -185,25 +223,23 @@ class FinalViewController: UIViewController {
         if let uuid = uuid {
             uuid.text = uuidname
         }
-        
-       
-        // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ 
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
+        timer?.invalidate()
+//        udplisten?.stop()
+//        udplisten = nil
+        Http = nil
+        //Http.Querybinding( server)
     }
-    */
-
 }
+
+
 
 
 struct GLOASP {
     static var gloasp = UnsafeMutablePointer<ASP_Data>.allocate(capacity: 1)
+    static var FACEidresult = false
 }

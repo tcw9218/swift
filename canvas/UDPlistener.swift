@@ -8,18 +8,9 @@ class listener {
     var udpListener:NWListener?
     var backgroundQueueUdpListener   = DispatchQueue(label: "udp-lis.bg.queue", attributes: [])
     var backgroundQueueUdpConnection = DispatchQueue(label: "udp-con.bg.queue", attributes: [])
-    //var gloasp : UnsafeMutablePointer<ASP_Data>?
-    // var ctapBtn :UIButton!
-    // var ctapBtn2 :UIButton!
-    
-//    init(_ gloasp : UnsafeMutablePointer<ASP_Data> ){
-//        self.gloasp = gloasp
-//        print("inUDP1gloasp: \(self.gloasp!)")
-//       // self.ctapBtn = Btn
-//        //print(self.ctapBtn)
-//        //self.ctapBtn2 = Btn2
-//        print("UDP init")
-//    }
+    init(){
+        print("UDPinit")
+    }
     
     deinit{
         print(" UDPdeinit")
@@ -109,9 +100,7 @@ class listener {
                 let  proUDP = processUdpData( data, incomingUdpConnection)
 //                     let  proUDP = processUdpData(self!.gloasp, data, self!.ctapBtn ,self!.ctapBtn2 , incomingUdpConnection)
                     let dataout = proUDP.start()
-                
-                
-                
+
                     incomingUdpConnection.send(content: dataout, completion:NWConnection.SendCompletion.contentProcessed(
                             ({(NWError) in
                                 if (NWError == nil) {

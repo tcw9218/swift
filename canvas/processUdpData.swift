@@ -13,27 +13,26 @@ import Network
 class processUdpData{
     
     var data_in : Data
-    
-   
-   
     var sendLength = 0
     var udpaddress : NWConnection?
-    
     var istouched = false
-    //weak var ctapBtn : UIButton!
-    //weak var ctapBtn2 : UIButton!
+//    @objc var ObservFACEid : FinalViewController? = nil
+//    var observation: NSKeyValueObservation?
 
     let notify_userAround = Notification.Name("userIsAround")
 //    init(_ ASP : UnsafeMutablePointer<ASP_Data>,_ data : Data , _ btn :UIButton ,_ btn2 :UIButton , _ nwdestination : NWConnection)
     
-    init(_ data : Data , _ nwdestination : NWConnection){
+    init(_ data : Data , _ nwdestination : NWConnection /*, ObservFACEid :FinalViewController */){
+//        self.ObservFACEid = ObservFACEid
         self.data_in = data
-     
         self.udpaddress = nwdestination
+       
         NotificationCenter.default.addObserver(self, selector: #selector(checkTapbtn(notification:)), name: notify_userAround, object: nil)
         print("udpprocess init")
-        print("inUDP4gloasp: \(GLOASP.gloasp)")
+        
     }
+    
+    
     
     
     @objc func checkTapbtn(notification: NSNotification){
@@ -47,7 +46,7 @@ class processUdpData{
     func start()->Data{
        
 
-        let number = data_in.count - 116 // payload offset(112) + CRC (4)
+        let number = data_in.count - 116 //  offset(112) + CRC (4)
         let receive_payload = UnsafeMutablePointer<UInt8>.allocate(capacity:  number)
         receive_payload.initialize(repeating: 0, count: number)
         data_in.advanced(by: 112).copyBytes(to: receive_payload, count: number)
@@ -82,33 +81,23 @@ class processUdpData{
         sendbuf.initialize(repeating: 0, count: 2048)
         let cbor0 = UnsafeMutablePointer<UInt8>.allocate(capacity: 120)
         cbor0.initialize(repeating: 0, count: 120)
-        
-        if(ctap_cmd == 0x90){ // CBOR
+// MARK: CBOR
+        if(ctap_cmd == 0x90){
             
-            var iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, ctap_msg, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, false)
+            var iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, ctap_msg, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 0)
             
-            
-            
-            if(iCborResult == 0 ){
+//   MARK: UP
+            if(iCborResult == ((0x10000) | 0 )){ // UP
               
                 var dataout : [UInt8] = []
                 for _ in 0..<120{  // length 116+ 4
                     dataout.append(0)
                 }
-//                MARK: 0125
+
                 let cbor00 = Notification.Name("cbor00")
                 NotificationCenter.default.post(name: cbor00, object: nil)
-               
-//                DispatchQueue.main.async{
-//
-//                    print(self.ctapBtn.isHidden)
-//                    print(self.ctapBtn2.isHidden)
-//                    self.ctapBtn.isHidden = false
-//                    //self.ctapBtn2.isHidden = false
-//
-//                }
-               
-                while(!istouched){//if false send keep alive
+       
+                while(!istouched || !GLOASP.FACEidresult){//if false send keep alive
 
                     print("user not around",terminator: "")
 
@@ -132,10 +121,12 @@ class processUdpData{
                 }
 
                 
-                iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, true)
+                iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 3)
+               
+                print("iCborResult:\(iCborResult)")
                 print("has pressed button")
                 //print("sendddingbuf::\(sendbuf[115])")
-               
+
                 //print(" pin set ::: \(iCborResult)")
                 let sendLength = iCborResult + 3 + 116
                 self.sendLength = Int(sendLength)
@@ -144,13 +135,61 @@ class processUdpData{
                 sendbuf[112 + 0] = ctap_cmd;
                 sendbuf[112 + 1] = UInt8((iCborResult >> 8) & 0xFF);
                 sendbuf[112 + 2] = UInt8((iCborResult >> 0) & 0xFF);
-                print("send after touched")
+                print("UP send after touched")
                 istouched = false
                 
             }
-//            MARK: FACEID TODO
-            else if(iCborResult == 65535){ // faceid
-                //DispatchQueue.main.async{self.ctapBtn.isHidden = false}
+//   MARK: UV
+            else if(iCborResult == ((0x10000) | 1)){
+                print("UVUVU")
+                  var dataout : [UInt8] = []
+                  for _ in 0..<120{  // length 116+ 4
+                      dataout.append(0)
+                  }
+
+                  let UV = Notification.Name("cbor00uv")
+                  NotificationCenter.default.post(name: UV, object: nil)
+         
+                  while(!GLOASP.FACEidresult){
+
+                      print("uv",terminator: "")
+//                      observation = observe(\.ObservFACEid.FACEidresult, options:[.old, .new]) { (object, change) in
+//                                 print("Value:\(String(describing: object.ObservFACEid.FACEidresult))")
+//                                 print("Value:\(String(describing: change.newValue)))")
+//                             }
+
+                      dataout[0] = 0x78
+                      dataout[1] = 0x00
+                      dataout[112] = 0xbb
+                      dataout[113] = 0x00
+                      dataout[114] = 0x01
+                      dataout[115] = 0x02
+
+
+                      udpaddress!.send(content: dataout, completion:NWConnection.SendCompletion.contentProcessed(
+                              ({(NWError) in
+                                  if (NWError == nil) {
+                                  //print("haaallllttttt")
+                                    //print("usernot around data ::\(dataout)")
+                                  }else {print("ERROR! Error when data sending inside. NWError: n (NWError!)")}
+                                 })))
+                      sleep(1)
+
+                  }
+
+                  
+                  iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 2)
+                  print("has pressed button")
+
+                  let sendLength = iCborResult + 3 + 116
+                  self.sendLength = Int(sendLength)
+                  sendbuf[0] = UInt8((sendLength >> 0) & 0xFF);
+                  sendbuf[1] = UInt8((sendLength >> 8) & 0xFF);
+                  sendbuf[112 + 0] = ctap_cmd;
+                  sendbuf[112 + 1] = UInt8((iCborResult >> 8) & 0xFF);
+                  sendbuf[112 + 2] = UInt8((iCborResult >> 0) & 0xFF);
+                  print("UV send after touched")
+                
             }
             else if(iCborResult > 0){
                 let sendLength = iCborResult + 3 + 116
@@ -161,6 +200,8 @@ class processUdpData{
                 sendbuf[112 + 0] = ctap_cmd;
                 sendbuf[112 + 1] = UInt8((iCborResult >> 8) & 0xFF);
                 sendbuf[112 + 2] = UInt8((iCborResult >> 0) & 0xFF);
+            }else{
+                print("CBOR return <0")
             }
 
         }
