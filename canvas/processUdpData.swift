@@ -149,14 +149,11 @@ class processUdpData{
 
                   let UV = Notification.Name("cbor00uv")
                   NotificationCenter.default.post(name: UV, object: nil)
-         
+                  GLOASP.FACEidresult = false
                   while(!GLOASP.FACEidresult){
 
                       print("uv",terminator: "")
-//                      observation = observe(\.ObservFACEid.FACEidresult, options:[.old, .new]) { (object, change) in
-//                                 print("Value:\(String(describing: object.ObservFACEid.FACEidresult))")
-//                                 print("Value:\(String(describing: change.newValue)))")
-//                             }
+
 
                       dataout[0] = 0x78
                       dataout[1] = 0x00
@@ -178,7 +175,8 @@ class processUdpData{
                   }
 
                   
-                  iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 2)
+                  iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 3)
+                  print("iCborResult:\(iCborResult)")
                   print("has pressed button")
 
                   let sendLength = iCborResult + 3 + 116
@@ -207,11 +205,13 @@ class processUdpData{
         }
         else if(ctap_cmd == 0x83 ){ //U2F
             print("U2F")
-            
-            
-            
-            
+
           
+        }
+        else if(ctap_cmd == 0x91){ //cancel
+            //return 0x2D
+            print("cancel")
+            
         }
         var dataout : [UInt8] = []
         

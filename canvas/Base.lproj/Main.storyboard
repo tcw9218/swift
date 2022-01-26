@@ -275,7 +275,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="touchme2" destination="b9p-TH-Th4" eventType="touchUpInside" id="Vgp-2w-FwQ"/>
+                                    <action selector="touch_UV" destination="b9p-TH-Th4" eventType="touchUpInside" id="Vgp-2w-FwQ"/>
                                 </connections>
                             </button>
                         </subviews>

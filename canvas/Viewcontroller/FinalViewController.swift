@@ -145,8 +145,10 @@ class FinalViewController: UIViewController {
         }
         
     }
-    @IBAction func touchme2(){
-        print("touch me2 UV")
+    @IBAction func touch_UV(){
+        print("touch UV")
+        
+        
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
