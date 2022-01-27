@@ -50,20 +50,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mhT-kU-OsL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3nt-uh-ei6"/>
-                            <constraint firstItem="4nB-TJ-Bxa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4oY-ug-aBu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4nB-TJ-Bxa" secondAttribute="trailing" id="5VC-4K-Acy"/>
                             <constraint firstItem="mhT-kU-OsL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="EXg-WB-5Uc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mhT-kU-OsL" secondAttribute="trailing" constant="90" id="FHl-p3-U34"/>
                             <constraint firstItem="XdM-rR-Eak" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Jrd-LD-L0K"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XdM-rR-Eak" secondAttribute="trailing" constant="90" id="LEh-Hp-vJJ"/>
                             <constraint firstItem="4nB-TJ-Bxa" firstAttribute="centerX" secondItem="zdQ-H6-Vx3" secondAttribute="centerX" id="Oq3-nH-mso"/>
                             <constraint firstItem="zdQ-H6-Vx3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qsk-A7-Bhk"/>
-                            <constraint firstItem="zdQ-H6-Vx3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R9q-1t-98Y"/>
                             <constraint firstItem="zdQ-H6-Vx3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Y19-BK-4cs"/>
                             <constraint firstItem="mhT-kU-OsL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="ZV3-PH-GmQ"/>
                             <constraint firstItem="XdM-rR-Eak" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ebb-T3-2zR"/>
                             <constraint firstItem="XdM-rR-Eak" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="iYE-Og-PiH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zdQ-H6-Vx3" secondAttribute="trailing" id="oeQ-dF-EmX"/>
                             <constraint firstItem="zdQ-H6-Vx3" firstAttribute="top" secondItem="4nB-TJ-Bxa" secondAttribute="bottom" constant="8" symbolic="YES" id="zAg-rW-h86"/>
                         </constraints>
                     </view>
@@ -270,10 +266,10 @@
                                     <action selector="touchme" destination="b9p-TH-Th4" eventType="touchUpInside" id="U3i-Zy-xrX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-Tv-jTa">
-                                <rect key="frame" x="173.5" y="690" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-Tv-jTa">
+                                <rect key="frame" x="173.5" y="557" width="67" height="64"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="2639811_face_id_icon"/>
                                 <connections>
                                     <action selector="touch_UV" destination="b9p-TH-Th4" eventType="touchUpInside" id="Vgp-2w-FwQ"/>
                                 </connections>
@@ -289,7 +285,7 @@
                             <constraint firstItem="txB-tC-Lmb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3rE-tJ-l9E" secondAttribute="leading" id="GDB-0p-4hG"/>
                             <constraint firstItem="txB-tC-Lmb" firstAttribute="top" secondItem="RPw-G8-oae" secondAttribute="bottom" constant="30" id="HMQ-hg-tTx"/>
                             <constraint firstItem="iCl-hD-wKe" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="J5B-Ra-D2y"/>
-                            <constraint firstItem="fhb-M0-qiM" firstAttribute="top" secondItem="fHO-Tv-jTa" secondAttribute="bottom" constant="10" id="O1d-eb-Qun"/>
+                            <constraint firstItem="fhb-M0-qiM" firstAttribute="top" secondItem="fHO-Tv-jTa" secondAttribute="bottom" constant="110" id="O1d-eb-Qun"/>
                             <constraint firstItem="iCl-hD-wKe" firstAttribute="leading" secondItem="3rE-tJ-l9E" secondAttribute="leading" constant="90" id="Pdg-9y-krz"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3rE-tJ-l9E" secondAttribute="leading" id="UaV-IP-dZn"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="VHT-7m-Viw"/>
@@ -332,6 +328,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="2639811_face_id_icon" width="64" height="64"/>
         <image name="ATMIcon" width="446" height="448"/>
         <image name="AuthTronM_icon" width="389" height="103"/>
         <image name="UPIcon" width="692" height="608"/>
