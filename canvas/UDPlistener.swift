@@ -1,6 +1,8 @@
 import Network
 import Foundation
 import UIKit
+
+
 class listener {
     
    // let port: NWEndpoint.Port
@@ -8,6 +10,7 @@ class listener {
     var udpListener:NWListener?
     var backgroundQueueUdpListener   = DispatchQueue(label: "udp-lis.bg.queue", attributes: [])
     var backgroundQueueUdpConnection = DispatchQueue(label: "udp-con.bg.queue", attributes: [])
+    var connectionArray = [NWConnection]()
     init(){
         print("UDPinit")
     }
@@ -17,9 +20,14 @@ class listener {
     }
     
     func stop(){
-        udpListener?.stateUpdateHandler = nil
-        udpListener?.newConnectionHandler = nil
+        //udpListener?.stateUpdateHandler = nil
+        
         udpListener?.cancel()
+        for connection in connectionArray {
+                connection.cancel()
+            }
+
+        
         print("UDP stop")
     }
     
@@ -43,7 +51,7 @@ class listener {
                     self.udpListener = nil
                 case .cancelled:
                     print("Listener:  Cancelled by user")
-//                    for connection in self.connections {
+//                    for connection in self.connectionArray {
 //                        connection.cancel()
 //                    }
                     self.udpListener = nil
@@ -57,7 +65,7 @@ class listener {
             self.udpListener?.newConnectionHandler = { (incomingUdpConnection) in
                 print(" NWConnection Handler called ")
                 
-                incomingUdpConnection.stateUpdateHandler = { (udpConnectionState) in
+                incomingUdpConnection.stateUpdateHandler = { [weak self](udpConnectionState) in
                     //print("Connection endpoint: \(incomingUdpConnection.endpoint)")
                     switch udpConnectionState {
                     case .setup:
@@ -67,8 +75,8 @@ class listener {
                     case .ready:
                         print("Connection:  ready")
                        
-                       // self.connections.append(incomingUdpConnection)
-                        self.processData(incomingUdpConnection )
+                        self!.connectionArray.append(incomingUdpConnection)
+                        self!.processData(incomingUdpConnection )
                         //print("fppfpsfsfs::\(self.stringToClient)")
                         //self.sendUDP(incomingUdpConnection , self.stringToClient)
                     case .failed(let error):

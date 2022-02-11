@@ -119,7 +119,7 @@ class RegisteredController: UIViewController {
                 //self.squareview.layer.borderColor = UIColor.brown.cgColor
                 //self.view.bringSubviewToFront(squareview)
                 self.avCaptureSession.startRunning()
-            print("startruning")
+          
         }
        
         

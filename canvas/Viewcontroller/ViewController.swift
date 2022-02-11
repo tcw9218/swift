@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var server = ""
     var observation: NSKeyValueObservation?
     let defaults = UserDefaults.standard
-    let selfip = getip().getIpAddress()
+   
 
 //    MARK: SETNAME
     @IBOutlet weak var setnamebtn : UIButton!
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     }
   
     
-    func displayName(state : String){
+    func checkState(state : String){
          let state = defaults.string(forKey: "state")
 //        state = "initialized"
 //        defaults.set("initialized", forKey: "state")
@@ -74,27 +74,19 @@ class ViewController: UIViewController {
         }else{
             print("not just installed app :: \(state_saved!)")
             state = state_saved!
-            
         }
         if(state == "installed"){
             //let timestamp = NSDate().timeIntervalSince1970
             let UUID = UUID.init().uuidString
             defaults.set(UUID, forKey: "UUID")
-            print("renew UUID")
-            
+            //print("renew UUID")
             state = "initialized"
             defaults.set("initialized", forKey: "state")
         }
-        
         let inikey = iniKey()
         inikey.setall()
-
-        displayName(state: state)
-        print(state)
-       
-        
+        checkState(state: state)
         super.viewDidLoad()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -109,8 +101,12 @@ class ViewController: UIViewController {
         }
     }
     
-
-////    MARK: segue
+    
+    
+    
+    
+    
+//    MARK: segue
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if(segue.identifier == "goScanSegue"){
 //            guard let scan = segue.destination as? scanController else {return}
@@ -139,7 +135,6 @@ class ViewController: UIViewController {
 //                ViewController().HttptoPost.hearbeat(self.server, self.selfip!)
 //
 //                    })
-//
 //        }
 //    }
 //}

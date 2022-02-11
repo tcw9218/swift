@@ -44,7 +44,7 @@ class ATCecdsa {
                    return Data(Array($0))
                 }
                let keyptr = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
-                keyptr.initialize(repeating: 0, count: 32)
+               keyptr.initialize(repeating: 0, count: 32)
                keyb32.copyBytes(to: keyptr, count: 32)
                
     // save selfkey in keychain

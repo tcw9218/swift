@@ -64,7 +64,7 @@ class ATCecdh{
            
                let iv = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
                iv.initialize(repeating: 0, count: 16)
-//MARK:  encrypt ecdsa nonrk privatekey
+//MARK:  encrypt ecdh  privatekey
                blockcipher_onestep(CIPHER_AES256, MODE_CBC, 0, 0, 32, keyptr, 16, iv, 32, privkey, credential)
                
                cry_ini.deallocate()
@@ -72,8 +72,6 @@ class ATCecdh{
                keyptr.deallocate()
                privkey.deallocate()
                
-                
-                
                return 0
             }else{
                 print("ecdh privkey error")

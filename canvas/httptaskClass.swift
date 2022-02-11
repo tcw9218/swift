@@ -9,7 +9,6 @@ class httpTaskClass: NSObject {
     }
     
     var daemonid = ""
-   
     var registered : Bool = false
     var isexist = true
     //let defaults = UserDefaults.standard

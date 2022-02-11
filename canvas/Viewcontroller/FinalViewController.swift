@@ -67,7 +67,6 @@ class FinalViewController: UIViewController {
         toinform()
     }
     
-    
     @IBAction func Deregister(_ sender: Any) {
         Http!.deregistered(server)
         //derigisterBtn.isHidden = true
@@ -82,19 +81,13 @@ class FinalViewController: UIViewController {
     }
 //
     let selfip = getip().getIpAddress()
-    static var login  =  0
+//    static var login  =  0
     @IBOutlet weak var uuid : UILabel!
     @IBOutlet weak var usrname : UILabel!
     @IBOutlet weak var ctapBtn : UIButton!
     @IBOutlet weak var ctapBtn2 : UIButton!
     
 
-    
-
-    
-
- 
-    
 //    MARK: UPUV
     
     @objc func showcbor(notification: NSNotification){
@@ -117,9 +110,7 @@ class FinalViewController: UIViewController {
 
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                 if success {
-//                    DispatchQueue.main.async { [unowned self] in
-//                        self.showMessage(title: "Login Successful", message: nil)
-//                    }
+
                     print("success")
                     GLOASP.FACEidresult = true
                 } else {
@@ -132,7 +123,6 @@ class FinalViewController: UIViewController {
         } else {
             //showMessage(title: "Failed", message: error?.localizedDescription)
         }
-       
         ctapBtn.isHidden = !ctapBtn.isHidden
     }
    
@@ -143,12 +133,11 @@ class FinalViewController: UIViewController {
             self.ctapBtn2.isHidden = false
             //print(self.ctapBtn)
         }
-        
     }
+    
     @IBAction func touch_UV(){
         print("touch UV")
-        
-        
+
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
@@ -157,22 +146,15 @@ class FinalViewController: UIViewController {
 
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                 if success {
-//                    DispatchQueue.main.async { [unowned self] in
-//                        self.showMessage(title: "Login Successful", message: nil)
-//                    }
                     print("success")
                     GLOASP.FACEidresult = true
                 } else {
                     GLOASP.FACEidresult = false
-//                    DispatchQueue.main.async { [unowned self] in
-//                        self.showMessage(title: "Login Failed", message: error?.localizedDescription)
-//                    }
                 }
             }
         } else {
-            //showMessage(title: "Failed", message: error?.localizedDescription)
+            print(error as Any)
         }
-       
         ctapBtn2.isHidden = !ctapBtn2.isHidden
     }
     
@@ -214,7 +196,7 @@ class FinalViewController: UIViewController {
   //      let glo_asp = UnsafeMutablePointer<ASP_Data>.allocate(capacity : 1)
         ctap_handler_init(GLOASP)
         print("gloasp: \(GLOASP)")
-        udplisten = listener(  )
+        udplisten = listener()
         udplisten!.start()
         
         let user = defaults.string(forKey: "displayname")
@@ -227,19 +209,15 @@ class FinalViewController: UIViewController {
         }
     }
 
- 
     override func viewWillDisappear(_ animated: Bool) {
         print("viewWillDisappear")
         timer?.invalidate()
-//        udplisten?.stop()
-//        udplisten = nil
+        udplisten?.stop()
+        udplisten = nil
         Http = nil
         //Http.Querybinding( server)
     }
 }
-
-
-
 
 struct GLOASP {
     static var gloasp = UnsafeMutablePointer<ASP_Data>.allocate(capacity: 1)
