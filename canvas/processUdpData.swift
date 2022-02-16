@@ -56,26 +56,14 @@ class processUdpData{
         ctap_msg.initialize(from: receive_payload.advanced(by: 3), count: number - 3)
         
         let buf_ptr = UnsafeMutablePointer<UInt8>.allocate( capacity: number - 3)
-       // var buf : [UInt8]
-        
-         
-//        print("ctap_msg")
-//        print("numer ::\(number-3)")
-//        for i in 0..<number-3{
-//            let a = ctap_msg[i]
-//            let st = String(format: "%02X", a)
-//            print("\(st)", terminator: " ")
-//        }
-//        print("")
-        
-//        print("buf")
+
         for i in 0..<(number-3){
             buf_ptr[i] = ctap_msg[i] // copy important cuz ctap_msh might be changed
 //            let a = buf_ptr[i]
 //            let st = String(format: "%02X", a)
 //            print(st , terminator: " ")
         }
-//        print("")
+
         
         let sendbuf = UnsafeMutablePointer<UInt8>.allocate(capacity: 2048)
         sendbuf.initialize(repeating: 0, count: 2048)

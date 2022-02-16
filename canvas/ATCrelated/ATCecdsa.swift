@@ -24,7 +24,9 @@ class ATCecdsa {
             var item: CFTypeRef?
             var statusRetr = SecItemCopyMatching(ecdsaquery as CFDictionary, &item)
             if statusRetr == errSecSuccess{
-                print("nonrkkey is exist")
+                print("ecdsa nonrkkey is exist")
+                
+//                return 0
                 let deletestatusEcdsa = SecItemDelete(ecdsaquery as CFDictionary)
                 if(deletestatusEcdsa == errSecSuccess){
                     print("delete nonrkkey")
@@ -132,6 +134,23 @@ class ATCecdsa {
             let cryp_ini = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
             cryp_ini.initialize(repeating: 0, count: 32)
             crystal_init(cryp_ini, 32)
+            
+            //MARK: check if ecdsakey is exist
+            let tag = ("rkkey"+String(keyId)).data(using: .utf8)!
+            let ecdsaquery: [String: Any] = [kSecClass as String: kSecClassKey,
+                                        kSecAttrApplicationTag as String: tag,
+                                        kSecReturnData as String: true       ]
+            var item: CFTypeRef?
+            var statusRetr = SecItemCopyMatching(ecdsaquery as CFDictionary, &item)
+            if statusRetr == errSecSuccess{
+                print("ecdsa rk\(keyId)key is exist")
+                
+                let deletestatusEcdsa = SecItemDelete(ecdsaquery as CFDictionary)
+                if(deletestatusEcdsa == errSecSuccess){
+                    print("delete rkkey")
+                }
+
+            }
             //random as privkey
             let privkey = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
             publickey.initialize(repeating: 0, count: 64)//

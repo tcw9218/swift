@@ -22,6 +22,11 @@ class FinalViewController: UIViewController {
     
     deinit{
         print("fnail deinit")
+        NotificationCenter.default.removeObserver(self)
+        
+        if let ForeObserver =  ForeObserver{
+        NotificationCenter.default.removeObserver(ForeObserver)
+            }
     }
     func toinform(){
         let VC_inform = storyboard?.instantiateViewController(withIdentifier: "inform")as? informTableViewController
@@ -67,17 +72,32 @@ class FinalViewController: UIViewController {
         toinform()
     }
     
+    @IBAction func bindMoreDaemon(_ sender: Any) {
+        toReigstered()
+    }
+    
     @IBAction func Deregister(_ sender: Any) {
-        Http!.deregistered(server)
-        //derigisterBtn.isHidden = true
-        defaults.set("installed", forKey: "state")
+        let alert = UIAlertController(title: "Warning", message: "this will clear all information in your phone", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Deregister")
+            self.Http!.deregistered(self.server)
+            //Http?.Querybinding(server) // ask daemoncount
+            
+                //derigisterBtn.isHidden = true
+            self.defaults.set("installed", forKey: "state")
+                
+            self.timer?.invalidate()
+            ATC_ADP_master_key_destroy()
+            ATC_ADP_ecdsa256_attkey_destroy()
+            authenticator_reset()
+            self.glo_asp.deallocate()
+            self.toFirst()
+            }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+          print("Handle Cancel deregister here")
+          }))
         
-        timer?.invalidate()
-        ATC_ADP_master_key_destroy()
-        ATC_ADP_ecdsa256_attkey_destroy()
-        authenticator_reset()
-        glo_asp.deallocate()
-        toFirst()
+        self.present(alert, animated: true, completion: nil)
     }
 //
     let selfip = getip().getIpAddress()
@@ -104,11 +124,11 @@ class FinalViewController: UIViewController {
         NotificationCenter.default.post(name: notify_userAround, object: nil)
         let context = LAContext()
         var error: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
       
             let reason = "User Verification"
 
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
                 if success {
 
                     print("success")
@@ -125,6 +145,7 @@ class FinalViewController: UIViewController {
         }
         ctapBtn.isHidden = !ctapBtn.isHidden
     }
+
    
     @objc func showcborUV(notification: NSNotification){
         print(" showcborUV received")
@@ -140,11 +161,11 @@ class FinalViewController: UIViewController {
 
         let context = LAContext()
         var error: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
       
             let reason = "User Verification"
-
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+//deviceOwnerAuthenticationWithBiometrics  deviceOwnerAuthentication
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
                 if success {
                     print("success")
                     GLOASP.FACEidresult = true
@@ -157,9 +178,26 @@ class FinalViewController: UIViewController {
         }
         ctapBtn2.isHidden = !ctapBtn2.isHidden
     }
+//    MARK: observer
+    private var ForeObserver: NSObjectProtocol?
+   
+    @objc func appMovedToBackground() {
+        print("App moved to background!")
+        udplisten?.stop()
+        udplisten = nil
+    }
     
 //MARK: viewdidload
     override func viewDidLoad() {
+         ForeObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+            print("App move to frontend")
+             udplisten = listener()
+             udplisten!.start()
+                    // do whatever you want when the app is brought back to the foreground
+                }
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
         let GLOASP = GLOASP.gloasp
         
         //print("selfip:\(selfip)")
@@ -184,7 +222,7 @@ class FinalViewController: UIViewController {
                 print("server notexist")
             }else{
                 if(daemonid != nil){
-                    //Http.Querybinding( server)
+                    Http.Querybinding(server)
                     //Http.getAllItemInfo(daemonid!, server)
                     timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self](timer) in
                         self?.Http?.hearbeat(self!.server, self!.selfip!)
@@ -217,9 +255,13 @@ class FinalViewController: UIViewController {
         Http = nil
         //Http.Querybinding( server)
     }
+   
 }
+
+
 
 struct GLOASP {
     static var gloasp = UnsafeMutablePointer<ASP_Data>.allocate(capacity: 1)
     static var FACEidresult = false
+    static var daemonCount = 0
 }

@@ -51,7 +51,9 @@ class httpTaskClass: NSObject {
         let session_status = URLSession(configuration:URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current)
         let payloadJSONData = try! JSONEncoder().encode(dereg)
         let DeReg = payloadJSONData.urlSafeBase64EncodedString()
-        
+        if(GLOASP.daemonCount > 0){
+            GLOASP.daemonCount -= 1
+        }
         createPost(session :session_status,qMes: genJWT().start(DeReg), url: server+"/register/deregister"){_,_ in
             print("derigstering")
             //self?.binding_ID = "Binding ID:"
@@ -65,7 +67,9 @@ class httpTaskClass: NSObject {
         let session_status = URLSession(configuration:URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current)
         var a = heartBeat_Payload()
         a.IP = selfip
+//        print(a.IP)
         a.AID = defaults.string(forKey: "UUID") ?? ""
+//        print(a.AID)
         let payloadJSONData = try! JSONEncoder().encode(a)
         let HearBeat = payloadJSONData.urlSafeBase64EncodedString()
         
@@ -89,10 +93,11 @@ class httpTaskClass: NSObject {
           
             let jsonRes = try? JSONSerialization.jsonObject(with:output, options: [])as?[String:Any]
             let IDstore = IDstorage()
-            
+            var daemoncount = 0
             if let jsonRes = jsonRes{
                 for (dmonid, dataValue) in jsonRes {
                     print(dmonid)
+                    daemoncount += 1
                     IDstore.setDaemon(daemon_in: dmonid)
                    // print(self.daemon_arr.count)
                     //self.daemonid = dmonid
@@ -102,7 +107,10 @@ class httpTaskClass: NSObject {
                         //print(dataValue["ECDSApub"] ?? "")
                         //print(dataValue["ECDHpub"] ?? "")
                     }
+                   
                 }
+                GLOASP.daemonCount = daemoncount
+                print("daemonCount::\(GLOASP.daemonCount)")
             }
             else{
                 print("jsonRes empty")

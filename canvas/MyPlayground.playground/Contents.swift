@@ -32,3 +32,5 @@ print(UInt16((a[0] & 0xFF)) << 8 | UInt16((a[1] & 0xFF)) )
 
 
 print(UInt8((120 >> 8) & 0xFF))
+
+print(0xA5 & 0x1F)

@@ -89,9 +89,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVV-DV-X7S">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVV-DV-X7S">
                                 <rect key="frame" x="50" y="370" width="314" height="332"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AuthTronM_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fjb-iP-oAw">
                                 <rect key="frame" x="90" y="74" width="234" height="103"/>
@@ -109,19 +108,23 @@
                         <viewLayoutGuide key="safeArea" id="8zV-Im-wbT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qVV-DV-X7S" firstAttribute="top" secondItem="aTm-3L-0nN" secondAttribute="bottom" constant="20.5" id="4da-fV-fKf"/>
                             <constraint firstItem="tOR-dz-sPy" firstAttribute="centerX" secondItem="8zV-Im-wbT" secondAttribute="centerX" id="AmW-0o-hXl"/>
                             <constraint firstItem="CZF-Ay-3Rf" firstAttribute="leading" secondItem="8zV-Im-wbT" secondAttribute="leading" constant="50" id="B1Z-l7-Jlf"/>
-                            <constraint firstItem="aTm-3L-0nN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8zV-Im-wbT" secondAttribute="leading" id="EgZ-xR-vEf"/>
                             <constraint firstItem="fjb-iP-oAw" firstAttribute="centerX" secondItem="8zV-Im-wbT" secondAttribute="centerX" id="FE1-wT-sQJ"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="fjb-iP-oAw" secondAttribute="trailing" constant="90" id="Fgv-2x-Gnz"/>
                             <constraint firstItem="tOR-dz-sPy" firstAttribute="leading" secondItem="8zV-Im-wbT" secondAttribute="leading" constant="90" id="JhV-50-Tee"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="bottom" secondItem="tOR-dz-sPy" secondAttribute="bottom" id="Kqd-RN-wYf"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="tOR-dz-sPy" secondAttribute="trailing" constant="90" id="LSQ-Fp-Crg"/>
                             <constraint firstItem="fjb-iP-oAw" firstAttribute="top" secondItem="8zV-Im-wbT" secondAttribute="top" constant="30" id="PkQ-v8-1YZ"/>
-                            <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aTm-3L-0nN" secondAttribute="trailing" id="Tq5-Zq-i61"/>
+                            <constraint firstItem="aTm-3L-0nN" firstAttribute="leading" secondItem="8zV-Im-wbT" secondAttribute="leading" constant="83" id="Xfz-yO-Sss"/>
+                            <constraint firstItem="qVV-DV-X7S" firstAttribute="centerX" secondItem="8zV-Im-wbT" secondAttribute="centerX" id="aMF-SZ-YwU"/>
                             <constraint firstItem="CZF-Ay-3Rf" firstAttribute="top" secondItem="8zV-Im-wbT" secondAttribute="top" constant="230" id="cAF-Od-Ipb"/>
+                            <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="qVV-DV-X7S" secondAttribute="trailing" constant="50" id="cKK-YY-WPe"/>
                             <constraint firstItem="fjb-iP-oAw" firstAttribute="leading" secondItem="8zV-Im-wbT" secondAttribute="leading" constant="90" id="frW-9x-aDU"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="CZF-Ay-3Rf" secondAttribute="trailing" constant="50" id="hs2-hr-IzT"/>
+                            <constraint firstItem="tOR-dz-sPy" firstAttribute="top" secondItem="qVV-DV-X7S" secondAttribute="bottom" constant="78" id="iqu-BD-CQR"/>
+                            <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="aTm-3L-0nN" secondAttribute="trailing" constant="83" id="kus-Lh-YdM"/>
                             <constraint firstItem="aTm-3L-0nN" firstAttribute="top" secondItem="CZF-Ay-3Rf" secondAttribute="bottom" constant="8" symbolic="YES" id="oxv-yC-fwx"/>
                             <constraint firstItem="aTm-3L-0nN" firstAttribute="centerX" secondItem="8zV-Im-wbT" secondAttribute="centerX" id="pcD-EV-PTN"/>
                         </constraints>
@@ -229,6 +232,17 @@
                                             <action selector="selectbtn" destination="b9p-TH-Th4" eventType="touchUpInside" id="MbE-Z1-pIC"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-jL-Z7W">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="y9o-qd-BdD"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Bind more"/>
+                                        <connections>
+                                            <action selector="bindMoreDaemon:" destination="b9p-TH-Th4" eventType="touchUpInside" id="seo-Th-Hdj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </stackView>
@@ -312,6 +326,7 @@
                             <constraint firstItem="fhb-M0-qiM" firstAttribute="bottom" secondItem="3rE-tJ-l9E" secondAttribute="bottom" id="vEi-IJ-Tpw"/>
                             <constraint firstItem="uxo-Hb-B2K" firstAttribute="top" secondItem="55F-eS-mdr" secondAttribute="bottom" constant="8" symbolic="YES" id="vea-io-9ZW"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="top" secondItem="RPw-G8-oae" secondAttribute="bottom" constant="89.5" id="wZ5-Jq-N43"/>
+                            <constraint firstItem="3rE-tJ-l9E" firstAttribute="trailing" secondItem="fHO-Tv-jTa" secondAttribute="trailing" constant="173.5" id="xhO-qL-0BA"/>
                             <constraint firstItem="3rE-tJ-l9E" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="txB-tC-Lmb" secondAttribute="trailing" id="yZz-jk-iIw"/>
                         </constraints>
                     </view>
@@ -325,6 +340,7 @@
                         <outlet property="uuid" destination="55F-eS-mdr" id="d8N-FS-OLD"/>
                         <outletCollection property="btnss" destination="elX-eE-n9L" collectionClass="NSMutableArray" id="bxz-WM-nZM"/>
                         <outletCollection property="btnss" destination="3BO-u8-Z14" collectionClass="NSMutableArray" id="TrB-2V-iCf"/>
+                        <outletCollection property="btnss" destination="m7f-jL-Z7W" collectionClass="NSMutableArray" id="0zr-uL-WDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKT-mV-r8D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
