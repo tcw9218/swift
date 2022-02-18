@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Network
+import LocalAuthentication
+
 
 class processUdpData{
     
@@ -128,19 +130,37 @@ class processUdpData{
                 
             }
 //   MARK: UV
-            else if(iCborResult == ((0x10000) | 1)){
-                print("UVUVU")
+            else if(iCborResult == ((0x10000) | 1)){ //65535
+                print("UV")
                   var dataout : [UInt8] = []
                   for _ in 0..<120{  // length 116+ 4
                       dataout.append(0)
                   }
+//MARK: faceid
+                
+                let context = LAContext()
+                var error: NSError?
+                if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+              
+                    let reason = "User Verification"
 
-                  let UV = Notification.Name("cbor00uv")
-                  NotificationCenter.default.post(name: UV, object: nil)
+                    context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
+                        if success {
+
+                          
+                            GLOASP.FACEidresult = true
+                        } else {
+                            GLOASP.FACEidresult = false
+    
+                        }
+                    }
+                }
+//                  let UV = Notification.Name("cbor00uv")
+//                  NotificationCenter.default.post(name: UV, object: nil)
                   GLOASP.FACEidresult = false
                   while(!GLOASP.FACEidresult){
 
-                      print("uv",terminator: "")
+                      print("uvnotset",terminator: "")
 
 
                       dataout[0] = 0x78

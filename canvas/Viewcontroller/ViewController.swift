@@ -8,6 +8,7 @@ import UIKit
 import Network
 import Foundation
 import CoreData
+import LocalAuthentication
 
 class ViewController: UIViewController {
     
@@ -90,15 +91,40 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let state = defaults.string(forKey: "state")
-        if let state = state {
-            if(state == "set_name"){
-                //toFinal()
-                toReigstered()
-            }else if(state == "binded"){
-                toFinal()
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+      
+            let reason = "User Verification"
+
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
+                if success {
+                    DispatchQueue.main.async{
+                        let state = self.defaults.string(forKey: "state")
+                        if let state = state {
+                            if(state == "set_name"){
+                                //toFinal()
+                                self.toReigstered()
+                            }else if(state == "binded"){
+                                self.toFinal()
+                            }
+                        }
+                        
+                    }
+                    
+                }
             }
         }
+        print("view did appear")
+//        let state = defaults.string(forKey: "state")
+//        if let state = state {
+//            if(state == "set_name"){
+//                //toFinal()
+//                toReigstered()
+//            }else if(state == "binded"){
+//                toFinal()
+//            }
+//        }
     }
     
     

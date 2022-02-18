@@ -117,14 +117,12 @@
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="bottom" secondItem="tOR-dz-sPy" secondAttribute="bottom" id="Kqd-RN-wYf"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="tOR-dz-sPy" secondAttribute="trailing" constant="90" id="LSQ-Fp-Crg"/>
                             <constraint firstItem="fjb-iP-oAw" firstAttribute="top" secondItem="8zV-Im-wbT" secondAttribute="top" constant="30" id="PkQ-v8-1YZ"/>
-                            <constraint firstItem="aTm-3L-0nN" firstAttribute="leading" secondItem="8zV-Im-wbT" secondAttribute="leading" constant="83" id="Xfz-yO-Sss"/>
                             <constraint firstItem="qVV-DV-X7S" firstAttribute="centerX" secondItem="8zV-Im-wbT" secondAttribute="centerX" id="aMF-SZ-YwU"/>
                             <constraint firstItem="CZF-Ay-3Rf" firstAttribute="top" secondItem="8zV-Im-wbT" secondAttribute="top" constant="230" id="cAF-Od-Ipb"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="qVV-DV-X7S" secondAttribute="trailing" constant="50" id="cKK-YY-WPe"/>
                             <constraint firstItem="fjb-iP-oAw" firstAttribute="leading" secondItem="8zV-Im-wbT" secondAttribute="leading" constant="90" id="frW-9x-aDU"/>
                             <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="CZF-Ay-3Rf" secondAttribute="trailing" constant="50" id="hs2-hr-IzT"/>
                             <constraint firstItem="tOR-dz-sPy" firstAttribute="top" secondItem="qVV-DV-X7S" secondAttribute="bottom" constant="78" id="iqu-BD-CQR"/>
-                            <constraint firstItem="8zV-Im-wbT" firstAttribute="trailing" secondItem="aTm-3L-0nN" secondAttribute="trailing" constant="83" id="kus-Lh-YdM"/>
                             <constraint firstItem="aTm-3L-0nN" firstAttribute="top" secondItem="CZF-Ay-3Rf" secondAttribute="bottom" constant="8" symbolic="YES" id="oxv-yC-fwx"/>
                             <constraint firstItem="aTm-3L-0nN" firstAttribute="centerX" secondItem="8zV-Im-wbT" secondAttribute="centerX" id="pcD-EV-PTN"/>
                         </constraints>
@@ -280,19 +278,6 @@
                                     <action selector="touchme" destination="b9p-TH-Th4" eventType="touchUpInside" id="U3i-Zy-xrX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-Tv-jTa">
-                                <rect key="frame" x="173.5" y="557" width="67" height="64"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <color key="tintColor" systemColor="systemGray6Color"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="2639811_face_id_icon">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                    <color key="titleShadowColor" red="0.13311252470000001" green="0.35476578409999998" blue="0.95974562029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="touch_UV" destination="b9p-TH-Th4" eventType="touchUpInside" id="Vgp-2w-FwQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3rE-tJ-l9E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -304,7 +289,6 @@
                             <constraint firstItem="txB-tC-Lmb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3rE-tJ-l9E" secondAttribute="leading" id="GDB-0p-4hG"/>
                             <constraint firstItem="txB-tC-Lmb" firstAttribute="top" secondItem="RPw-G8-oae" secondAttribute="bottom" constant="30" id="HMQ-hg-tTx"/>
                             <constraint firstItem="iCl-hD-wKe" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="J5B-Ra-D2y"/>
-                            <constraint firstItem="fhb-M0-qiM" firstAttribute="top" secondItem="fHO-Tv-jTa" secondAttribute="bottom" constant="110" id="O1d-eb-Qun"/>
                             <constraint firstItem="iCl-hD-wKe" firstAttribute="leading" secondItem="3rE-tJ-l9E" secondAttribute="leading" constant="90" id="Pdg-9y-krz"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3rE-tJ-l9E" secondAttribute="leading" id="UaV-IP-dZn"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="VHT-7m-Viw"/>
@@ -312,9 +296,7 @@
                             <constraint firstAttribute="trailing" secondItem="RAj-Y7-xDp" secondAttribute="trailing" id="Wra-XU-yAH"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="centerX" secondItem="AxY-WA-jsD" secondAttribute="centerX" id="X3O-UY-2ba"/>
                             <constraint firstItem="txB-tC-Lmb" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="Ydn-Xt-ffq"/>
-                            <constraint firstItem="fHO-Tv-jTa" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="ZIv-X5-emj"/>
                             <constraint firstItem="RPw-G8-oae" firstAttribute="centerX" secondItem="3rE-tJ-l9E" secondAttribute="centerX" id="bVQ-av-CC6"/>
-                            <constraint firstItem="fHO-Tv-jTa" firstAttribute="leading" secondItem="3rE-tJ-l9E" secondAttribute="leading" constant="173.5" id="d59-5B-APU"/>
                             <constraint firstItem="3rE-tJ-l9E" firstAttribute="trailing" secondItem="iCl-hD-wKe" secondAttribute="trailing" constant="90" id="f03-T3-ELi"/>
                             <constraint firstItem="RAj-Y7-xDp" firstAttribute="top" secondItem="iCl-hD-wKe" secondAttribute="top" id="fHb-BR-719"/>
                             <constraint firstItem="3rE-tJ-l9E" firstAttribute="trailing" secondItem="uxo-Hb-B2K" secondAttribute="trailing" constant="95" id="fVs-a7-Aq8"/>
@@ -326,7 +308,6 @@
                             <constraint firstItem="fhb-M0-qiM" firstAttribute="bottom" secondItem="3rE-tJ-l9E" secondAttribute="bottom" id="vEi-IJ-Tpw"/>
                             <constraint firstItem="uxo-Hb-B2K" firstAttribute="top" secondItem="55F-eS-mdr" secondAttribute="bottom" constant="8" symbolic="YES" id="vea-io-9ZW"/>
                             <constraint firstItem="55F-eS-mdr" firstAttribute="top" secondItem="RPw-G8-oae" secondAttribute="bottom" constant="89.5" id="wZ5-Jq-N43"/>
-                            <constraint firstItem="3rE-tJ-l9E" firstAttribute="trailing" secondItem="fHO-Tv-jTa" secondAttribute="trailing" constant="173.5" id="xhO-qL-0BA"/>
                             <constraint firstItem="3rE-tJ-l9E" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="txB-tC-Lmb" secondAttribute="trailing" id="yZz-jk-iIw"/>
                         </constraints>
                     </view>
@@ -334,7 +315,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ctapBtn" destination="uxo-Hb-B2K" id="zZD-GI-5fb"/>
-                        <outlet property="ctapBtn2" destination="fHO-Tv-jTa" id="6gt-jC-eGI"/>
                         <outlet property="morebtn" destination="gzw-wh-DU4" id="mFo-yW-K0g"/>
                         <outlet property="usrname" destination="txB-tC-Lmb" id="OhI-zn-qIp"/>
                         <outlet property="uuid" destination="55F-eS-mdr" id="d8N-FS-OLD"/>
@@ -349,23 +329,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2639811_face_id_icon" width="64" height="64"/>
         <image name="ATMIcon" width="446" height="448"/>
         <image name="AuthTronM_icon" width="389" height="103"/>
         <image name="UPIcon" width="692" height="608"/>
         <image name="Wisecure_icon" width="500" height="82"/>
         <image name="gear" catalog="system" width="128" height="119"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

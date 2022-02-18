@@ -17,6 +17,7 @@ class FinalViewController: UIViewController {
     let defaults = UserDefaults.standard
     var timer : Timer?
     var udplisten : listener?
+    var selfip = getip().getIpAddress()
     
 //    @objc dynamic var FACEidresult = false
     
@@ -99,13 +100,12 @@ class FinalViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-//
-    let selfip = getip().getIpAddress()
+
 //    static var login  =  0
     @IBOutlet weak var uuid : UILabel!
     @IBOutlet weak var usrname : UILabel!
     @IBOutlet weak var ctapBtn : UIButton!
-    @IBOutlet weak var ctapBtn2 : UIButton!
+  
     
 
 //    MARK: UPUV
@@ -147,37 +147,16 @@ class FinalViewController: UIViewController {
     }
 
    
-    @objc func showcborUV(notification: NSNotification){
-        print(" showcborUV received")
-        //print(ctapBtn)
-        DispatchQueue.main.async{
-            self.ctapBtn2.isHidden = false
-            //print(self.ctapBtn)
-        }
-    }
+//    @objc func showcborUV(notification: NSNotification){
+//        print(" showcborUV received")
+//        //print(ctapBtn)
+//        DispatchQueue.main.async{
+//            self.ctapBtn2.isHidden = false
+//            //print(self.ctapBtn)
+//        }
+//    }
     
-    @IBAction func touch_UV(){
-        print("touch UV")
 
-        let context = LAContext()
-        var error: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-      
-            let reason = "User Verification"
-//deviceOwnerAuthenticationWithBiometrics  deviceOwnerAuthentication
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
-                if success {
-                    print("success")
-                    GLOASP.FACEidresult = true
-                } else {
-                    GLOASP.FACEidresult = false
-                }
-            }
-        } else {
-            print(error as Any)
-        }
-        ctapBtn2.isHidden = !ctapBtn2.isHidden
-    }
 //    MARK: observer
     private var ForeObserver: NSObjectProtocol?
    
@@ -185,14 +164,30 @@ class FinalViewController: UIViewController {
         print("App moved to background!")
         udplisten?.stop()
         udplisten = nil
+        //timer?.invalidate()
     }
+    
     
 //MARK: viewdidload
     override func viewDidLoad() {
          ForeObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
             print("App move to frontend")
-             udplisten = listener()
-             udplisten!.start()
+             let context = LAContext()
+             var error: NSError?
+             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+           
+                 let reason = "User Verification"
+
+                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
+                     if success {
+                         udplisten = listener()
+                         udplisten!.start()
+                        
+                         
+                     }
+                 }
+             }
+             
                     // do whatever you want when the app is brought back to the foreground
                 }
         
@@ -204,13 +199,13 @@ class FinalViewController: UIViewController {
         //print("UUID:\(UUID.init())")
         print("GLOASP: \(GLOASP)")
         let cbor00 = Notification.Name("cbor00")
-        let UV = Notification.Name("cbor00uv")
+        //let UV = Notification.Name("cbor00uv")
         NotificationCenter.default.addObserver(self, selector: #selector(showcbor(notification:)), name: cbor00, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showcborUV(notification:)), name: UV, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(showcborUV(notification:)), name: UV, object: nil)
         
         super.viewDidLoad()
         ctapBtn.isHidden = true
-        ctapBtn2.isHidden = true
+        //ctapBtn2.isHidden = true
 
         server =  defaults.string(forKey: "server") ?? ""
         let daemonid = defaults.string(forKey: "daemon_id")
@@ -223,8 +218,14 @@ class FinalViewController: UIViewController {
             }else{
                 if(daemonid != nil){
                     Http.Querybinding(server)
-                    //Http.getAllItemInfo(daemonid!, server)
-                    timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self](timer) in
+                    Http.hearbeat(self.server, self.selfip!)
+                    
+                    timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self](_) in
+                        //
+                        if (self!.selfip != getip().getIpAddress() ){
+                            self!.selfip = getip().getIpAddress() // renew ip address
+                        }
+                        
                         self?.Http?.hearbeat(self!.server, self!.selfip!)
                             })
                 }
@@ -253,15 +254,14 @@ class FinalViewController: UIViewController {
         udplisten?.stop()
         udplisten = nil
         Http = nil
+        
         //Http.Querybinding( server)
     }
-   
 }
-
-
 
 struct GLOASP {
     static var gloasp = UnsafeMutablePointer<ASP_Data>.allocate(capacity: 1)
     static var FACEidresult = false
     static var daemonCount = 0
+    
 }

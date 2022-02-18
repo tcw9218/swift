@@ -33,10 +33,8 @@ class AESSHA{
         {
             print("sha256 data in out error")
             return 1
-            
         }
     }
-    
     
     var ATC_hmac256Impl:@convention(c)(  _ keyLen : UInt8 ,_ key : UnsafeMutablePointer<UInt8>?, _ dataLen : UInt16 ,_ dataIn : UnsafeMutablePointer<UInt8>? , _ dataOut : UnsafeMutablePointer<UInt8>?)->Int32 = {keyLen,key,dataLen, dataIn , dataOut in
         if let dataIn = dataIn , let dataOut = dataOut , let key = key{
