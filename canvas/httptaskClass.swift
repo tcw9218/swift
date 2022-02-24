@@ -10,7 +10,7 @@ class httpTaskClass: NSObject {
     
     var daemonid = ""
     var registered : Bool = false
-    var isexist = true
+    var isexist = false
     //let defaults = UserDefaults.standard
     
     //@objc dynamic var binding_ID = ""
@@ -18,24 +18,25 @@ class httpTaskClass: NSObject {
  
     
 //    MARK: check if server alive
-    func checkServer(_ server : String)->Bool{
-        let session_status = URLSession(configuration:URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current)
-        let requestURL = URL(string: server)
-        let urlRequest = URLRequest(url: requestURL!)
-        
-        
-        let task = session_status.dataTask(with: urlRequest){[weak self](data, response, error) in
-            if let data = data {
-                print("server exist:\(data)")
+    func checkServer(_ server : String , callback : @escaping ( (Bool)->() )){
+           let session_status = URLSession(configuration:URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current)
+           let requestURL = URL(string: server)
+           let urlRequest = URLRequest(url: requestURL!)
+           
+           let task = session_status.dataTask(with: urlRequest){(data, response, error) in
+               if let data = data {
+              
+                   callback(true)
+                   print("server exist:\(data)")
             }
             else
             {
-                self!.isexist = false
+                callback(false)
                 print("no server")
             }
         }
         task.resume()
-        return isexist
+
     }
 //MARK: - Deregister
     func deregistered(_ server :String){
@@ -51,8 +52,8 @@ class httpTaskClass: NSObject {
         let session_status = URLSession(configuration:URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current)
         let payloadJSONData = try! JSONEncoder().encode(dereg)
         let DeReg = payloadJSONData.urlSafeBase64EncodedString()
-        if(GLOASP.daemonCount > 0){
-            GLOASP.daemonCount -= 1
+        if(parameter.daemonCount > 0){
+            parameter.daemonCount -= 1
         }
         createPost(session :session_status,qMes: genJWT().start(DeReg), url: server+"/register/deregister"){_,_ in
             print("derigstering")
@@ -109,8 +110,8 @@ class httpTaskClass: NSObject {
                     }
                    
                 }
-                GLOASP.daemonCount = daemoncount
-                print("daemonCount::\(GLOASP.daemonCount)")
+                parameter.daemonCount = daemoncount
+                print("daemonCount::\(parameter.daemonCount)")
             }
             else{
                 print("jsonRes empty")

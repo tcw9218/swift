@@ -10,7 +10,7 @@ import CoreData
 
 class informTableViewController: UITableViewController {
 
-    
+    var daemon : [ID_Storage] = []
     @IBAction func backFinal(){
         toFinal()
     }
@@ -21,7 +21,7 @@ class informTableViewController: UITableViewController {
         view.window?.makeKeyAndVisible()
     }
     
-    var daemon : [ID_Storage] = []
+    
     func getdaemon(){
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
             if let daemonFromCoreData = try? context.fetch(ID_Storage.fetchRequest()){
@@ -39,11 +39,19 @@ class informTableViewController: UITableViewController {
         let cell = UITableViewCell()
         let selectedDaemon = daemon[indexPath.row]
         //print("selecdaemon:\(selectedDaemon.id)")
-         //let id  = selectedToDo.id
         cell.textLabel?.text =  selectedDaemon.daemonid
         //print(cell.textLabel?.text)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedDaemon = daemon[indexPath.row]
+        print(selectedDaemon.daemonid!)
+        parameter.SelectDaemon = selectedDaemon.daemonid!
+    }
+    
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
@@ -77,10 +85,7 @@ class informTableViewController: UITableViewController {
         super.viewDidLoad()
 
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        getdaemon()
-//        print("hhhh")
-//    }
+
 
 
 

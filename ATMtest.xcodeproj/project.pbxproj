@@ -215,6 +215,7 @@
 		EA3CCA4B2775CB1800E1CD12 /* getIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIP.swift; sourceTree = "<group>"; };
 		EA3CCCF2277C35CD00E1CD12 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EA3CCCF3277D607500E1CD12 /* processUdpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = processUdpData.swift; sourceTree = "<group>"; };
+		EA4ABCF727C4AD6D0031A0F6 /* ATMtest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ATMtest.entitlements; sourceTree = "<group>"; };
 		EA864F7A2759E50E0027D5A0 /* ATMtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA864F7D2759E50E0027D5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA864F7F2759E50E0027D5A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +230,7 @@
 		EA8840192761CC3C00338D1A /* scanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanController.swift; sourceTree = "<group>"; };
 		EA884087276B23F800338D1A /* genJWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genJWT.swift; sourceTree = "<group>"; };
 		EA88408A276B251500338D1A /* CDSave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDSave.xcdatamodel; sourceTree = "<group>"; };
+		EAB0A00827C36393004DA7F8 /* UDPsend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPsend.swift; sourceTree = "<group>"; };
 		EAB83C66278D2F9D004534C9 /* AESSHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESSHA.swift; sourceTree = "<group>"; };
 		EAB83D8D2797B71C004534C9 /* RegisteredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredController.swift; sourceTree = "<group>"; };
 		EAB83D8F2797D404004534C9 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		EA864F712759E50E0027D5A0 = {
 			isa = PBXGroup;
 			children = (
+				EA4ABCF727C4AD6D0031A0F6 /* ATMtest.entitlements */,
 				EA864F7C2759E50E0027D5A0 /* canvas */,
 				EA864F7B2759E50E0027D5A0 /* Products */,
 			);
@@ -514,6 +517,7 @@
 				EA3CCA3C276C636E00E1CD12 /* httptaskClass.swift */,
 				EA884087276B23F800338D1A /* genJWT.swift */,
 				EA8840152761CBB000338D1A /* cameraAuthorize.swift */,
+				EAB0A00827C36393004DA7F8 /* UDPsend.swift */,
 				EA864F94275DB66A0027D5A0 /* UDPlistener.swift */,
 				EA3CCCF3277D607500E1CD12 /* processUdpData.swift */,
 				EA3CCA4B2775CB1800E1CD12 /* getIP.swift */,
@@ -856,8 +860,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ATMtest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = S7V44V384Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = canvas/Info.plist;
@@ -886,8 +891,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ATMtest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = S7V44V384Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = canvas/Info.plist;

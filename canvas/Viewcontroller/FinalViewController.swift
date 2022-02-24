@@ -21,6 +21,10 @@ class FinalViewController: UIViewController {
     
 //    @objc dynamic var FACEidresult = false
     
+    var totalAccumulatedTime: TimeInterval = 0
+    var lastDateObserved = Date()
+    //let currentDate = Date()
+    
     deinit{
         print("fnail deinit")
         NotificationCenter.default.removeObserver(self)
@@ -29,6 +33,7 @@ class FinalViewController: UIViewController {
         NotificationCenter.default.removeObserver(ForeObserver)
             }
     }
+    
     func toinform(){
         let VC_inform = storyboard?.instantiateViewController(withIdentifier: "inform")as? informTableViewController
         //print(view.window)
@@ -132,9 +137,9 @@ class FinalViewController: UIViewController {
                 if success {
 
                     print("success")
-                    GLOASP.FACEidresult = true
+                    parameter.FACEidresult = true
                 } else {
-                    GLOASP.FACEidresult = false
+                    parameter.FACEidresult = false
 //                    DispatchQueue.main.async { [unowned self] in
 //                        self.showMessage(title: "Login Failed", message: error?.localizedDescription)
 //                    }
@@ -146,17 +151,6 @@ class FinalViewController: UIViewController {
         ctapBtn.isHidden = !ctapBtn.isHidden
     }
 
-   
-//    @objc func showcborUV(notification: NSNotification){
-//        print(" showcborUV received")
-//        //print(ctapBtn)
-//        DispatchQueue.main.async{
-//            self.ctapBtn2.isHidden = false
-//            //print(self.ctapBtn)
-//        }
-//    }
-    
-
 //    MARK: observer
     private var ForeObserver: NSObjectProtocol?
    
@@ -164,42 +158,50 @@ class FinalViewController: UIViewController {
         print("App moved to background!")
         udplisten?.stop()
         udplisten = nil
+        
+        
+        totalAccumulatedTime = 0
+        lastDateObserved = Date()
         //timer?.invalidate()
     }
     
     
 //MARK: viewdidload
     override func viewDidLoad() {
+        
          ForeObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
-            print("App move to frontend")
+             print("App move to frontend")
+             
+             let currentDate = Date()
+             let currentAccumulatedTime = currentDate.timeIntervalSince(lastDateObserved)
+             totalAccumulatedTime +=  currentAccumulatedTime
+             //lastDateObserved = currentDate
+             print("currentAccumulatedTime::\(currentAccumulatedTime)")
+             
              let context = LAContext()
              var error: NSError?
-             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-           
-                 let reason = "User Verification"
-
-                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
-                     if success {
-                         udplisten = listener()
-                         udplisten!.start()
-                        
-                         
+             if(totalAccumulatedTime >= 5){
+                 if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+               
+                     let reason = "User Verification"
+                     context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
+                         if success {
+                             udplisten = listener()
+                             udplisten!.start()
+                         }
                      }
                  }
+             }else{
+                 udplisten = listener()
+                 udplisten!.start()
+                 
              }
-             
                     // do whatever you want when the app is brought back to the foreground
                 }
-        
          NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
-        let GLOASP = GLOASP.gloasp
-        
-        //print("selfip:\(selfip)")
-        //print("UUID:\(UUID.init())")
-        print("GLOASP: \(GLOASP)")
+
         let cbor00 = Notification.Name("cbor00")
-        //let UV = Notification.Name("cbor00uv")
         NotificationCenter.default.addObserver(self, selector: #selector(showcbor(notification:)), name: cbor00, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(showcborUV(notification:)), name: UV, object: nil)
         
@@ -213,38 +215,43 @@ class FinalViewController: UIViewController {
         
 //        MARK: first check http server is exist
         if let Http = Http {
-            if(!Http.checkServer(server) ){
-                print("server notexist")
-            }else{
-                if(daemonid != nil){
-                    Http.Querybinding(server)
-                    Http.hearbeat(self.server, self.selfip!)
-                    
-                    timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self](_) in
-                        //
-                        if (self!.selfip != getip().getIpAddress() ){
-                            self!.selfip = getip().getIpAddress() // renew ip address
-                        }
+            Http.checkServer(server) { bool in
+                if (bool){
+                    if(daemonid != nil){
+                        Http.Querybinding(self.server)
+                        Http.hearbeat(self.server, self.selfip!)
                         
-                        self?.Http?.hearbeat(self!.server, self!.selfip!)
-                            })
+                        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self](_) in
+                            //
+                            if (self!.selfip != getip().getIpAddress() ){
+                                self!.selfip = getip().getIpAddress() // renew ip address
+                            }
+                            
+                            self?.Http?.hearbeat(self!.server, self!.selfip!)
+                                })
+                        let GLOASP = parameter.gloasp
+                 
+                        print("GLOASP: \(GLOASP)")
+                        ctap_handler_init(GLOASP)
+                        print("gloasp: \(GLOASP)")
+                        self.udplisten = listener()
+                        self.udplisten!.start()
+                        
+                        let user = self.defaults.string(forKey: "displayname")
+                        if let user = user{
+                            self.usrname.text =   user
+                        }
+                        let uuidname = self.defaults.string(forKey: "UUID")
+                        if let uuid = self.uuid {
+                            uuid.text = uuidname
+                        }
+                    }
+                    
+                }else{
+                    
+                    print("server notexist")
                 }
             }
-        }
-        
-  //      let glo_asp = UnsafeMutablePointer<ASP_Data>.allocate(capacity : 1)
-        ctap_handler_init(GLOASP)
-        print("gloasp: \(GLOASP)")
-        udplisten = listener()
-        udplisten!.start()
-        
-        let user = defaults.string(forKey: "displayname")
-        if let user = user{
-        usrname.text =   user
-        }
-        let uuidname = defaults.string(forKey: "UUID")
-        if let uuid = uuid {
-            uuid.text = uuidname
         }
     }
 
@@ -259,9 +266,13 @@ class FinalViewController: UIViewController {
     }
 }
 
-struct GLOASP {
+
+
+struct parameter {
     static var gloasp = UnsafeMutablePointer<ASP_Data>.allocate(capacity: 1)
     static var FACEidresult = false
     static var daemonCount = 0
-    
+    static var ServerdownIP = ""
+    static var ServerdownPort = 0
+    static var SelectDaemon = ""
 }

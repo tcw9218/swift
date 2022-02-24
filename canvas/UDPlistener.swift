@@ -74,7 +74,6 @@ class listener {
                         print("Connection:  waiting: \(error)")
                     case .ready:
                         print("Connection:  ready")
-                       
                         self!.connectionArray.append(incomingUdpConnection)
                         self!.processData(incomingUdpConnection )
                         //print("fppfpsfsfs::\(self.stringToClient)")
@@ -106,7 +105,7 @@ class listener {
                 print("data in = \(data)")
                //print("inUDP2gloasp: \(self!.gloasp!)")
                 let  proUDP = processUdpData( data, incomingUdpConnection)
-//                     let  proUDP = processUdpData(self!.gloasp, data, self!.ctapBtn ,self!.ctapBtn2 , incomingUdpConnection)
+
                     let dataout = proUDP.start()
 
                     incomingUdpConnection.send(content: dataout, completion:NWConnection.SendCompletion.contentProcessed(

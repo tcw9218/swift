@@ -34,3 +34,15 @@ print(UInt16((a[0] & 0xFF)) << 8 | UInt16((a[1] & 0xFF)) )
 print(UInt8((120 >> 8) & 0xFF))
 
 print(0xA5 & 0x1F)
+
+
+var n = 1
+
+func printn(_ s : Int) -> Int{
+    n = 2
+    var s = s+1
+    return s
+}
+
+print(printn(1))
+print(n)

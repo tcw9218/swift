@@ -74,7 +74,7 @@ class processUdpData{
 // MARK: CBOR
         if(ctap_cmd == 0x90){
             
-            var iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, ctap_msg, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 0)
+            var iCborResult = authTronCore_cbor_cmd_handler(parameter.gloasp, ctap_msg, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 0)
             
 //   MARK: UP
             if(iCborResult == ((0x10000) | 0 )){ // UP
@@ -87,7 +87,7 @@ class processUdpData{
                 let cbor00 = Notification.Name("cbor00")
                 NotificationCenter.default.post(name: cbor00, object: nil)
        
-                while(!istouched || !GLOASP.FACEidresult){//if false send keep alive
+                while(!istouched || !parameter.FACEidresult){//if false send keep alive
 
                     print("user not around",terminator: "")
 
@@ -111,7 +111,7 @@ class processUdpData{
                 }
 
                 
-                iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 3)
+                iCborResult = authTronCore_cbor_cmd_handler(parameter.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 3)
                
                 print("iCborResult:\(iCborResult)")
                 print("has pressed button")
@@ -148,17 +148,17 @@ class processUdpData{
                         if success {
 
                           
-                            GLOASP.FACEidresult = true
+                            parameter.FACEidresult = true
                         } else {
-                            GLOASP.FACEidresult = false
+                            parameter.FACEidresult = false
     
                         }
                     }
                 }
 //                  let UV = Notification.Name("cbor00uv")
 //                  NotificationCenter.default.post(name: UV, object: nil)
-                  GLOASP.FACEidresult = false
-                  while(!GLOASP.FACEidresult){
+                  parameter.FACEidresult = false
+                  while(!parameter.FACEidresult){
 
                       print("uvnotset",terminator: "")
 
@@ -183,7 +183,7 @@ class processUdpData{
                   }
 
                   
-                  iCborResult = authTronCore_cbor_cmd_handler(GLOASP.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 3)
+                  iCborResult = authTronCore_cbor_cmd_handler(parameter.gloasp, buf_ptr, UInt16(number - 3), sendbuf.advanced(by: 112+3), 2048, 3)
                   print("iCborResult:\(iCborResult)")
                   print("has pressed button")
 

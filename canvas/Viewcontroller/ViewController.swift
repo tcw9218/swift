@@ -94,7 +94,7 @@ class ViewController: UIViewController {
         let context = LAContext()
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-      
+
             let reason = "User Verification"
 
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { (success, error) in
@@ -109,9 +109,9 @@ class ViewController: UIViewController {
                                 self.toFinal()
                             }
                         }
-                        
+
                     }
-                    
+
                 }
             }
         }

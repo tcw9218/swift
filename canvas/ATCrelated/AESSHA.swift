@@ -20,14 +20,6 @@ class AESSHA{
         let digestlength = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
         digestlength.initialize(repeating: 0, count: 1)
         hash_onestep(SHA2_256_TYPE, UInt32(dataLen), dataIn, digestlength, dataOut)
-//
-//        for data in 0..<32{
-//           // print(dataOut[data])
-//            let a = dataOut[data]
-//            let st = String(format:"%02X", a)
-//            //st += " is the hexadecimal representation of \(a)"
-//            print("sha256digest:\(st)")
-//        }
         return 0
         }else
         {
