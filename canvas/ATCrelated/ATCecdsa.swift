@@ -25,14 +25,50 @@ class ATCecdsa {
             var statusRetr = SecItemCopyMatching(ecdsaquery as CFDictionary, &item)
             if statusRetr == errSecSuccess{
                 print("ecdsa nonrkkey is exist")
-                
-//                return 0
-                let deletestatusEcdsa = SecItemDelete(ecdsaquery as CFDictionary)
-                if(deletestatusEcdsa == errSecSuccess){
-                    print("delete nonrkkey")
+//                MARK: TODO
+                //credkey
+                    let credkey = item as! Data
+                    var credkeyptr = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
+                    credkeyptr.initialize(repeating: 0, count: 32)
+                    credkey.copyBytes(to: credkeyptr, count: 32)
+        
+                print("genkeykey")
+                for i in 0...32{
+                    
+                              
+                       let a = credkeyptr[i]
+                       let st = String(format:"%02X", a)
+                       //st += " is the hexadecimal representation of \(a)"
+                       print("\(st)" , terminator:  " ")
+                           
                 }
+                print("")
+                
+                let privkey = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
+                let privkey_status = SecRandomCopyBytes(kSecRandomDefault,32,privkey)
+                if privkey_status == errSecSuccess {
+                    
+                    Data(bytes: privkey, count: 32)
+                    publickey.initialize(repeating: 0, count: 64)
+                    ecdsa_gen_keypair(ECP_DP_NIST_P256, privkey ,publickey)
+                    let iv = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
+                    iv.initialize(repeating: 0, count: 16)
+         // encrypt ecdsa nonrk privatekey to credentialkey
+                    blockcipher_onestep(CIPHER_AES256, MODE_CBC, 0, 0, 32, credkeyptr, 16, iv, 32, privkey, credential)
+                    print("blockcipher done")
+                    return 0
+                }
+        
+                
+                
+//                let deletestatusEcdsa = SecItemDelete(ecdsaquery as CFDictionary)
+//                if(deletestatusEcdsa == errSecSuccess){
+//                    print("delete nonrkkey")
+//                }
+                //                MARK: done
             }
     //random(as privatekey)
+            print("else")
             let privkey = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
             let privkey_status = SecRandomCopyBytes(kSecRandomDefault,32,privkey)
             if privkey_status == errSecSuccess {
@@ -78,6 +114,7 @@ class ATCecdsa {
 //MARK: - ATC_ecdsa_nonrkSignImpl
     var ATC_ecdsa_nonrkSignImpl :@convention(c)(  _ credential : UnsafeMutablePointer<UInt8>?,_ digest : UnsafeMutablePointer<UInt8>? , _ signature : UnsafeMutablePointer<UInt8>?) ->Int32 = { credential , digest ,signature in
         if let credential = credential , let digest = digest , let signature = signature  {
+            print("nonrk sign")
             let tag = ("nonrkkey").data(using: .utf8)!
             let query: [String: Any] = [kSecClass as String: kSecClassKey,
                                         kSecAttrApplicationTag as String: tag,
@@ -95,6 +132,17 @@ class ATCecdsa {
                 var credkeyptr = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
                 credkeyptr.initialize(repeating: 0, count: 32)
                 credkey.copyBytes(to: credkeyptr, count: 32)
+                print("signkeykey")
+                for i in 0...32{
+                    
+                              
+                       let a = credkeyptr[i]
+                       let st = String(format:"%02X", a)
+                       //st += " is the hexadecimal representation of \(a)"
+                       print("\(st)" , terminator:  " ")
+                           
+                }
+                print("")
     //decrypt credential to nonrkkey
                 let iv = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
                 iv.initialize(repeating: 0, count: 16)
