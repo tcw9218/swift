@@ -999,22 +999,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1075E131-7735-4F81-9256-CFB8A47C0483"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "canvas/ATCrelated/ATCecdsa.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "ATCecdsa"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E7BA543A-B664-42B6-9BC1-95D8AA3A175B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1022,9 +1006,9 @@
             filePath = "canvas/ATCrelated/ATCecdsa.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "ATC_ecdsa_rkState"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "ATC_ecdsa_rkDestroyImpl"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1038,9 +1022,9 @@
             filePath = "canvas/ATCrelated/ATCecdsa.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "ATC_ecdsa_rkState"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "ATC_ecdsa_rkDestroyImpl"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1054,8 +1038,8 @@
             filePath = "canvas/ATCrelated/ATCecdsa.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "ATC_ecdsa_rkDestroyImpl"
             landmarkType = "24">
          </BreakpointContent>
@@ -1070,8 +1054,8 @@
             filePath = "canvas/ATCrelated/ATCecdsa.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "ATC_ecdsa_rkDestroyImpl"
             landmarkType = "24">
          </BreakpointContent>
@@ -1102,10 +1086,10 @@
             filePath = "canvas/ATCrelated/ATCecdsa.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "ATCecdsa"
-            landmarkType = "3">
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "ATC_ecdsa_rkGenImpl"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
