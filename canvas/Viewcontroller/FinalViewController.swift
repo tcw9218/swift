@@ -212,6 +212,7 @@ class FinalViewController: UIViewController {
 
         server =  defaults.string(forKey: "server") ?? ""
         let daemonid = defaults.string(forKey: "daemon_id")
+        print("token :::: \(parameter.fcmtoken)")
        
         
 //        MARK: first check http server is exist
@@ -276,4 +277,5 @@ struct parameter {
     static var ServerdownIP = ""
     static var ServerdownPort = 0
     static var SelectDaemon = ""
+    static var fcmtoken = ""
 }

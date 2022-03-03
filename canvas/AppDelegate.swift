@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate ,UNUser
               tokenString += hexString
            }
         Messaging.messaging().apnsToken = deviceToken
-                print("deviceToken", tokenString)
+                //print("deviceToken", tokenString)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -47,9 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate ,UNUser
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         messaging.token { token, error in
             guard let token = token else {return}
-            print("Firebase Registration token : \(token)")
+        
+            //print("Firebase Registration token : \(token)")
             
-            //glo.fcmtoken = token ;
+            parameter.fcmtoken = token ;
             
 //            let dataDict: [String: String] = ["token": fcmToken ?? ""]
 //               NotificationCenter.default.post(

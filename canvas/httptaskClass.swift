@@ -167,6 +167,8 @@ class httpTaskClass: NSObject {
                 var Reg_p = Reg_Payload()
                 Reg_p.NOTE = displayname
                 Reg_p.ID = defaults.string(forKey: "UUID") ?? ""
+                Reg_p.FCMTOKEN = parameter.fcmtoken
+                print("token :::: \(Reg_p.FCMTOKEN)")
                
                 let payloadJSONData = try! JSONEncoder().encode(Reg_p)
                 let Reg = payloadJSONData.urlSafeBase64EncodedString()

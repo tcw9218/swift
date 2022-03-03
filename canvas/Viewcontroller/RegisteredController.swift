@@ -66,13 +66,7 @@ class RegisteredController: UIViewController {
                 label.text = "Wrong daemodid"
                 goscan()
             }
-            
-            //defaults.set("registered", forKey: "state")
-            //sleep(1)
-           
         }
-       
-
     }
     
     func goscan(){
@@ -119,10 +113,7 @@ class RegisteredController: UIViewController {
                 //self.squareview.layer.borderColor = UIColor.brown.cgColor
                 //self.view.bringSubviewToFront(squareview)
                 self.avCaptureSession.startRunning()
-          
         }
-       
-        
     }
     override func viewDidLoad() {
         
